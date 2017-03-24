@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Autor: Andres
+         Ultima modificacion: 24/03/2017 -->
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet"
+	   type="text/css"/>
+    <link href="css/styles-css/custom-login.css" rel="stylesheet"
+	   type="text/css"/>
+    <title>Login</title>
+</head>
+<body>
+
+<!-- Login content -->
+    <div class="container">
+
+        <!-- Cabecera -->
+        <div class="container-header">
+            <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+
+        <!-- Cuerpo -->
+        <div class="container-body">
+            <form role="form">
+                <div class="form-group">
+                    <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuario</label>
+                    <input type="email" class="form-control" id="usrname" placeholder="Ingrese email">
+                </div>
+                <div class="form-group">
+                    <label for="psw"><span class="glyphicon glyphicon-eye-close"></span> Contraseña</label>
+                    <input type="password" class="form-control" id="psw" placeholder="Ingrese Contraseña">
+                </div>
+                <label><input type="checkbox" value="" checked> Recuérdame</label>
+                <button type="submit" class="btn btn-info align" style="align: right;">
+                <span class="glyphicon glyphicon-log-in"></span> Ingresar</button>
+            </form>
+        </div>
+
+        <!-- Pie -->
+        <div class="container-footer">
+            <a href="index.html"><button type="button" class="btn btn-danger btn-default pull-left">
+            <span class="glyphicon glyphicon-remove"></span> Cancelar</button></a>
+            <p>No tienes cuenta? <a href="#">Registrarse</a></p>
+            <p>Olvidó su <a href="#">Contraseña?</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
