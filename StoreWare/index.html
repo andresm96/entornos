@@ -4,26 +4,12 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="Entornos" content="StoreWare">
     <title>StoreWare</title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -34,7 +20,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Navegación</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -67,13 +53,98 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                <p class="lead">Categorías</p>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" href="#collapse-almacenamiento" class="panel-title">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Almacenamiento
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapse-almacenamiento" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <a href="categorias/almacenamiento/almacenamiento-hdd.html"><li class="list-group-item">HDD</li></a>
+                        <a href="categorias/almacenamiento/almacenamiento-ssd.html"><li class="list-group-item">SSD</li></a>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-            </div>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" href="#collapse-fuentes" class="panel-title">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Fuentes
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapse-fuentes" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <a href="categorias/fuentes/fuentes-genericas.html"><li class="list-group-item">Genéricas</li></a>
+                        <a href="categorias/fuentes/fuentes-80.html"><li class="list-group-item">80+</li></a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" href="#collapse-memorias" class="panel-title">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Memorias
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapse-memorias" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <a href="categorias/memorias/memorias-ddr3.html"><li class="list-group-item">DDR3</li></a>
+                        <a href="categorias/memorias/memorias-ddr4.html"><li class="list-group-item">DDR4</li></a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" href="#collapse-motherboards" class="panel-title">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Motherboards
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="collapse-motherboards" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <a href="categorias/motherboards/motherboard-am4.html"><li class="list-group-item">AM4</li></a>
+                        <a href="categorias/motherboards/motherboard-1150.html"><li class="list-group-item">1150</li></a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-group">
+                  <div class="panel panel-default">
+                    <a data-toggle="collapse" href="#collapse-procesadores" class="panel-title">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Procesadores
+                        </h4>
+                      </div>
+                  </a>
+                    <div id="collapse-procesadores" class="panel-collapse collapse">
+                      <ul class="list-group">
+                        <a href="categorias/procesadores/procesadores-amd.html"><li class="list-group-item">AMD</li></a>
+                        <a href="categorias/procesadores/procesadores-intel.html"><li class="list-group-item">Intel</li></a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+          </div>
 
             <div class="col-md-9">
 
@@ -88,13 +159,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="src/img/intel-banner.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="src/img/samsung-banner.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="src/img/asus-banner.png" alt="">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -242,9 +313,9 @@
 
         <!-- Footer -->
         <footer>
-            <div class="row">
+            <div class="row" style="text-align:center">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; StoreWare 2017</p>
                 </div>
             </div>
         </footer>
