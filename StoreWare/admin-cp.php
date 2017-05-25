@@ -46,10 +46,25 @@
                 <div class="col-md-3">
                     <p class="lead">Bienvenido Administrador</p>
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="admin-cp.php">Listado</a></li>
-                        <li role="presentation" ><a href="admin-alta.php">Alta</a></li>
-                        <li role="presentation"><a href="admin-baja.php">Baja</a></li>
-                        <li role="presentation"><a href="admin-modif.php">Modificacion</a></li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation" class="active"><a href="admin-cp.php">Listado</a></li>
+                                <li role="presentation"><a href="admin-alta-prod.html">Alta</a></li>
+                                <li role="presentation"><a href="admin-baja-prod.html">Baja</a></li>
+                                <li role="presentation"><a href="admin-modif-prod.html">Modificacion</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a href="admin-cp-user.php">Listado</a></li>
+                                <li role="presentation"><a href="admin-alta-user.html">Alta</a></li>
+                                <li role="presentation"><a href="admin-baja-user.html">Baja</a></li>
+                                <li role="presentation"><a href="admin-modif-user.html">Modificacion</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
@@ -96,12 +111,12 @@
 
                             if ($selectedcat == "Procesadores")
                             {
-                                $subcat=4;
+                                $subcat=5;
                             }
 
                             if ($selectedcat == "Motherboards")
                             {
-                                $subcat=5;
+                                $subcat=4;
                             }
 
                             $sql = "SELECT * FROM producto where id_subcategoria like '$subcat%'";
