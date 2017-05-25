@@ -1,3 +1,34 @@
+<?php
+
+    if (isset($_POST["submit"])) {
+
+        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+        mysqli_select_db($conn, "storeware");
+
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $stock = $_POST['stock'];
+        $subcategoria = $_POST['subcategoria'];
+        $img = $_POST['img'];
+
+        // Hacemos una consulta para buscar la categoria
+        $sqlcat = "SELECT * from subcategoria where nombre = '$subcategoria'";
+        $resultado = mysqli_query($conn, $sqlcat);
+        $fila = mysqli_fetch_array($resultado);
+        $idsubcat = $fila['id_subCategoria'];
+
+        $sqlinsert = "INSERT INTO producto (nombre, precio, stock, id_subcategoria, img) VALUES ('$nombre', '$precio', '$stock', '$idsubcat', '$img')";
+
+        $sucess=mysqli_query($conn, $sqlinsert) or die (mysqli_error($conn));
+
+        if($sucess){
+            $success = '<div class="alert alert-success">El producto se ha registrado exitosamente!</div>';
+        }
+
+         mysqli_close($conn);
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,9 +100,9 @@
                 </div>
 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Alta de un nuevo producto</h1>
+                    <h1>Alta de un nuevo producto</h1> <hr>
 
-                    <form class="form-group" action="php/alta-producto.php" method="post">
+                    <form class="form-group" action="admin-alta-prod.php" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" name="nombre" placeholder="Nombre del producto..." required>
                         </div>
@@ -102,6 +133,12 @@
                             <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
                             <input type="submit" class="btn btn-primary pull-right" name="submit" value="Cargar producto">
                         </div>
+
+                        <?php
+                            if (isset($_POST["submit"])) {
+                                echo $success;
+                            }
+                        ?>
                     </form>
                 </div>
             </div>
