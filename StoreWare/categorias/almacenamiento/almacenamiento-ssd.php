@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Genericas</title>
+    <title>SSD</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +77,8 @@
                     </a>
                     <div id="collapse-almacenamiento" class="panel-collapse collapse">
                       <ul class="list-group">
-                        <a href="../almacenamiento/almacenamiento-hdd.html"><li class="list-group-item">HDD</li></a>
-                        <a href="../almacenamiento/almacenamiento-ssd.html"><li class="list-group-item">SSD</li></a>
+                        <a href="../almacenamiento/almacenamiento-hdd.php"><li class="list-group-item">HDD</li></a>
+                        <a href="../almacenamiento/almacenamiento-ssd.php"><li class="list-group-item">SSD</li></a>
                       </ul>
                     </div>
                   </div>
@@ -95,8 +95,8 @@
                     </a>
                     <div id="collapse-fuentes" class="panel-collapse collapse">
                       <ul class="list-group">
-                        <a href="fuentes-genericas.html"><li class="list-group-item">Genéricas</li></a>
-                        <a href="fuentes-80.html"><li class="list-group-item">80+</li></a>
+                        <a href="../fuentes/fuentes-genericas.php"><li class="list-group-item">Genéricas</li></a>
+                        <a href="../fuentes/fuentes-80.php"><li class="list-group-item">80+</li></a>
                       </ul>
                     </div>
                   </div>
@@ -113,8 +113,8 @@
                     </a>
                     <div id="collapse-memorias" class="panel-collapse collapse">
                       <ul class="list-group">
-                        <a href="../memorias/memorias-ddr3.html"><li class="list-group-item">DDR3</li></a>
-                        <a href="../memorias/memorias-ddr4.html"><li class="list-group-item">DDR4</li></a>
+                        <a href="../memorias/memorias-ddr3.php"><li class="list-group-item">DDR3</li></a>
+                        <a href="../memorias/memorias-ddr4.php"><li class="list-group-item">DDR4</li></a>
                       </ul>
                     </div>
                   </div>
@@ -131,8 +131,8 @@
                     </a>
                     <div id="collapse-motherboards" class="panel-collapse collapse">
                       <ul class="list-group">
-                        <a href="../motherboards/motherboard-am4.html"><li class="list-group-item">AM4</li></a>
-                        <a href="../motherboards/motherboard-1150.html"><li class="list-group-item">1150</li></a>
+                        <a href="../motherboards/motherboard-am4.php"><li class="list-group-item">AM4</li></a>
+                        <a href="../motherboards/motherboard-1150.php"><li class="list-group-item">1150</li></a>
                       </ul>
                     </div>
                   </div>
@@ -149,39 +149,89 @@
                   </a>
                     <div id="collapse-procesadores" class="panel-collapse collapse">
                       <ul class="list-group">
-                        <a href="../procesadores/procesadores-amd.html"><li class="list-group-item">AMD</li></a>
-                        <a href="../procesadores/procesadores-intel.html"><li class="list-group-item">Intel</li></a>
+                        <a href="../procesadores/procesadores-amd.php"><li class="list-group-item">AMD</li></a>
+                        <a href="../procesadores/procesadores-intel.php"><li class="list-group-item">Intel</li></a>
                       </ul>
                     </div>
                   </div>
                 </div>
           </div>
-    </div>
+<!-- // CUERPO DE LA PAGINA // -->
 
-        <!-- /.container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-1">
+            <?php
+                $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+                mysqli_select_db($conn, "storeware");
 
-        <div class="container">
+                $sql = "SELECT * FROM producto WHERE id_subcategoria = 102; ";
+                $resultado = mysqli_query($conn, $sql);
+                $total_registros=mysqli_num_rows($resultado);
+            ?>
 
-            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Precio Unitario</b></td>
+                        <td><b>Stock</b></td>
+                        <td></td>
+                    </tr>
+                </thead>
 
-            <!-- Footer -->
-            <footer>
-                <div class="row" style="text-align:center">
-                    <div class="col-lg-12">
-                        <p>Copyright &copy; StoreWare 2017</p>
-                    </div>
-                </div>
-            </footer>
+                <tbody>
+                    <?php
+                        while ($fila = mysqli_fetch_array($resultado))
+                        {
+                    ?>
 
+                    <tr>
+                        <td><?php echo ($fila['nombre']); ?></td>
+                        <td><?php echo ($fila['precio']); ?></td>
+                        <td><?php echo ($fila['stock']); ?></td>
+                        <td><button type="button" class="btn btn-default btn-sm">
+                              <span class="glyphicon glyphicon-plus"></span> Add
+                            </button></td>
+                    </tr>
+
+                    <?php
+                        }
+                        // Liberar conjunto de resultados
+                        mysqli_free_result($resultado);
+                        // Cerrar la conexion
+                        mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
         </div>
-        <!-- /.container -->
+    </div>
+</div>
 
-        <!-- jQuery -->
-        <script src="../../js/jquery.js"></script>
+<!-- // FIN CUERPO DE PAGINA // -->
+          <!-- /.container -->
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../../js/bootstrap.min.js"></script>
+          <div class="container">
 
+              <hr>
+
+              <!-- Footer -->
+              <footer>
+                  <div class="row" style="text-align:center">
+                      <div class="col-lg-12">
+                          <p>Copyright &copy; StoreWare 2017</p>
+                      </div>
+                  </div>
+              </footer>
+
+          </div>
+          <!-- /.container -->
+
+          <!-- jQuery -->
+          <script src="../../js/jquery.js"></script>
+
+          <!-- Bootstrap Core JavaScript -->
+          <script src="../../js/bootstrap.min.js"></script>
 
 </body>
 </html>
