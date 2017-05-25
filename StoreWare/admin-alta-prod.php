@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Alta de un nuevo producto</h1>
+                    <h1>Alta de un nuevo producto</h1> <hr>
 
                     <form class="form-group" action="admin-alta-prod.php" method="post">
                         <div class="form-group">
