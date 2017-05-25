@@ -1,12 +1,19 @@
 <?php
+  include("conexion.inc");
   session_start();
-  $usuario=$_POST['usrname'];
-  $contraseña=$_POST['psw'];
+  $vUsuario=$_POST['usrname'];
+  $vContraseña=$_POST['psw'];
 
-  function userExist(){
+  function userExist($usuario){
 
-    if(){
-      $_SESSION["usuario"]=;
+      $vSql = "SELECT * FROM cliente WHERE usuario='$vUsuario'";
+      $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
+      $vCantFilas = $vResultado->num_rows;
+
+      if ($vCantFilas !=0){
+       echo ("El Usuario ya Existe<br>");
+       echo ("<A href='login.html'>Volver</A>");
+      }
     }
     return;
   }
