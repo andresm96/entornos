@@ -111,12 +111,12 @@
 
                             if ($selectedcat == "Procesadores")
                             {
-                                $subcat=4;
+                                $subcat=5;
                             }
 
                             if ($selectedcat == "Motherboards")
                             {
-                                $subcat=5;
+                                $subcat=4;
                             }
 
                             $sql = "SELECT * FROM producto where id_subcategoria like '$subcat%'";
