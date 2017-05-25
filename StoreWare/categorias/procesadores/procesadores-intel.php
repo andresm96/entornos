@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">StoreWare</a>
+                <a class="navbar-brand" href="../../index.php">StoreWare</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -156,44 +154,30 @@
                 </div>
           </div>
 <!-- // CUERPO DE LA PAGINA // -->
-
 <div class="container">
     <div class="row">
         <div class="col-md-7 col-md-offset-1">
             <?php
                 $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
                 mysqli_select_db($conn, "storeware");
-
                 $sql = "SELECT * FROM producto WHERE id_subcategoria = 502; ";
                 $resultado = mysqli_query($conn, $sql);
                 $total_registros=mysqli_num_rows($resultado);
-            ?>
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td><b>Nombre</b></td>
-                        <td><b>Precio Unitario</b></td>
-                        <td><b>Stock</b></td>
-                        <td></td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-                        while ($fila = mysqli_fetch_array($resultado))
-                        {
-                    ?>
-
-                    <tr>
-                        <td><?php echo ($fila['nombre']); ?></td>
-                        <td><?php echo ($fila['precio']); ?></td>
-                        <td><?php echo ($fila['stock']); ?></td>
-                        <td><button type="button" class="btn btn-default btn-sm">
-                              <span class="glyphicon glyphicon-plus"></span> Add
-                            </button></td>
-                    </tr>
-
+                while ($fila = mysqli_fetch_array($resultado))
+                  {
+              ?>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="<?php echo $fila['foto']?>" alt="">
+                        <div class="caption">
+                            <p><a href="#"><?php echo ($fila['nombre']); ?></a>
+                            </p>
+                            <h4>$ <?php echo ($fila['precio']); ?></h4>
+                        </div>
+                        <div class="ratings">
+                        </div>
+                    </div>
+                </div>
                     <?php
                         }
                         // Liberar conjunto de resultados
@@ -201,12 +185,9 @@
                         // Cerrar la conexion
                         mysqli_close($conn);
                     ?>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
-
 <!-- // FIN CUERPO DE PAGINA // -->
           <!-- /.container -->
 

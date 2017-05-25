@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">StoreWare</a>
+                <a class="navbar-brand" href="index.php">StoreWare</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -180,122 +180,65 @@
                 </div>
 
                 <div class="row">
+                  <?php
+                      $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+                      mysqli_select_db($conn, "storeware");
 
+                      $sql = "SELECT * FROM producto WHERE id_subcategoria = 401; ";
+                      $resultado = mysqli_query($conn, $sql);
+                      $total_registros=mysqli_num_rows($resultado);
+                      $fila = mysqli_fetch_array($resultado)
+                  ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="src/img/motherboard-am4.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
+                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
+                                <h4><a href="#">Motherboard - AM4</a>
                                 </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                <p><?php echo ($fila['nombre']); ?>.</p>
                             </div>
                             <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+                        mysqli_select_db($conn, "storeware");
 
+                        $sql = "SELECT * FROM producto WHERE id_subcategoria = 302; ";
+                        $resultado = mysqli_query($conn, $sql);
+                        $total_registros=mysqli_num_rows($resultado);
+                        $fila = mysqli_fetch_array($resultado)
+                    ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="src/img/memorias-ddr4.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$64.99</h4>
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
+                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
+                                <h4><a href="#">Memorias - DDR4</a></h4>
+                                <p><?php echo ($fila['nombre']); ?>.</p>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+                        mysqli_select_db($conn, "storeware");
 
+                        $sql = "SELECT * FROM producto WHERE id_subcategoria = 502; ";
+                        $resultado = mysqli_query($conn, $sql);
+                        $total_registros=mysqli_num_rows($resultado);
+                        $fila = mysqli_fetch_array($resultado)
+                    ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="src/img/procesadores-intel.jpg" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
+                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
+                                <h4><a href="#">Procesadores - Intel</a></h4>
+                                <p><?php echo ($fila['nombre']); ?>.</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$84.99</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">6 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$94.99</h4>
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Like this template?</a>
-                        </h4>
-                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
                     </div>
 
                 </div>
