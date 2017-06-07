@@ -1,6 +1,7 @@
 <?php
   include("conexion.inc");
   session_start();
+
   $_SESSION["usuario"] = NULL;
   $vUsuario=$_POST['usrname'];
   $vContraseña=$_POST['psw'];
@@ -29,7 +30,4 @@
     }
     return $vAdmin;
   }
-
-
-
  ?>

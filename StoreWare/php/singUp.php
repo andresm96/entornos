@@ -28,7 +28,8 @@
               '$vEmail', 0, '$vUsuario', '$vPassword')";
     mysqli_query($con, $vSql) or die (mysqli_error($con));
     echo("El Usuario fue Registrado<br><br>");
-    echo ("<A href='../index.html'>VOLVER AL MENU</A>");
+
+    echo ("<A href='../index.php'>VOLVER AL MENU</A>");
     // Liberar conjunto de resultados
     mysqli_free_result($vResultado);
   }

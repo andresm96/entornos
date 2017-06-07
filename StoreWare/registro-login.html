@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Autor: Andres
+         Ultima modificacion: 25/05/2017 -->
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet"
+	   type="text/css"/>
+    <link href="css/styles-css/custom-register.css" rel="stylesheet"
+	   type="text/css"/>
+    <title>Registrarse</title>
+</head>
+<body>
+
+<!-- Login content -->
+    <div class="container">
+
+        <!-- Cabecera -->
+        <div class="container-header">
+            <h1>Registrarse</h1>
+        </div>
+
+
+        <!-- Cuerpo -->
+        <div class="container-body">
+            <form role="form" action="php/singUp.php" method="post" name="singUp" id="singUp">
+
+              <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="direccion">Dirección</label>
+                  <input type="text" class="form-control" id="direccion" name="direccion" placeholder="" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="telefono">Telefono</label>
+                  <input type="text" class="form-control" id="telefono" name="telefono" placeholder="" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="email">e-mail</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese email" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuario</label>
+                  <input type="text" class="form-control" id="usrname" name="usrname" placeholder="" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-eye-close"></span> Contraseña</label>
+                  <input type="password" class="form-control" id="psw" name="psw" placeholder="Ingrese Contraseña" required>
+              </div>
+
+                <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-log-in"></span> Registrarse</button>
+            </form>
+        </div>
+
+        <!-- Pie -->
+        <div class="container-footer">
+            <a href="index.php"><button type="button" class="btn btn-danger btn-default pull-left">
+            <span class="glyphicon glyphicon-remove"></span> Cancelar</button></a>
+            <p>Ya tienes cuenta? <a href="login.html">Ingresar</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
