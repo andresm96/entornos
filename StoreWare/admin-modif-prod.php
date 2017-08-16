@@ -1,40 +1,6 @@
-<?php
-
-    if (isset($_POST["submit"])) {
-
-        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-        mysqli_select_db($conn, "storeware");
-
-        $bajaId = $_POST['idbaja'];
-
-        //Hacemos la consulta para verificar si el ID existe
-
-        $consulta = "SELECT * from producto WHERE id_producto=$bajaId";
-
-        $resultado=mysqli_query($conn, $consulta) or die (mysqli_error($conn));
-
-        if(mysqli_num_rows($resultado) != 0) {
-
-            $consulta = "DELETE FROM producto WHERE id_producto=$bajaId";
-            $resultado=mysqli_query($conn, $consulta);
-
-            if($resultado) {
-                $resultado = '<div class="alert alert-success">El producto se ha eliminado exitosamente!</div>';
-            }
-            else {
-                $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
-            }
-        }
-        else {
-            
-            $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
-        }
-
-        // mysqli_free_result($resultado);
-        mysqli_close($conn);
-    }
+<?php 
+    session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -88,8 +54,8 @@
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a href="admin-cp.php">Listado</a></li>
                                 <li role="presentation"><a href="admin-alta-prod.php">Alta</a></li>
-                                <li role="presentation" class="active"><a href="admin-baja-prod.php">Baja</a></li>
-                                <li role="presentation"><a href="admin-modif-prod.php">Modificacion</a></li>
+                                <li role="presentation"><a href="admin-baja-prod.php">Baja</a></li>
+                                <li role="presentation" class="active"><a href="admin-modif-prod.php">Modificacion</a></li>
                             </ul>
                         </li>
 
@@ -104,24 +70,81 @@
                         </li>
                     </ul>
                 </div>
-
+                
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Baja de un producto</h1> <hr>
-
-                    <form class="form-group" action="admin-baja-prod.php" method="post">
+                    <h1>Modificar un producto</h1>
+                    <hr>
+                    <form class="form-group" action="admin-modif-prod.php" method="post">
                         <div class="form-group">    
-                            <input class="form-control" type="number" min="0" name="idbaja" placeholder="Ingrese el ID del producto a eliminar" required>
+                            <input class="form-control" type="number" min="0" name="idmodif" placeholder="Ingrese el ID del producto a modificar" required>
                         </div>
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
-                        <input type="submit" class="btn btn-danger pull-right" name="submit" value="Eliminar">
+                        <input type="submit" class="btn btn-primary pull-right" name="submit" value="Modificar">
                         <br><br>
-                        <?php
-                            if (isset($_POST["submit"])) {
-                                echo $resultado;
-                            }
-                        ?>
-
                     </form>
+
+                    <?php
+                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
+                        mysqli_select_db($conn, "storeware");
+
+                        if (isset($_POST['idmodif'])) {
+
+                            $idmodif = $_POST['idmodif'];
+
+
+                            $sql = "SELECT * FROM producto where id_producto=$idmodif";
+
+                            $resultado = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+
+                            $fila = mysqli_fetch_array($resultado);
+
+                            if(mysqli_num_rows($resultado) > 0) {
+
+                                $_SESSION["idprod"] = $idmodif;
+                                ?>
+                                <hr>
+                                <form class="form-group" action="php/commit-modif.php" method="post">
+                                    <div class="form-group">
+                                        <label for="nombre">ID seleccionado:</label>
+                                        <input type="number" class="form-control" name="id" value="<?php echo($fila['id_producto']); ?>" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre del producto:</label>
+                                        <input type="text" class="form-control" name="nombre" value="<?php echo($fila['nombre']); ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="precio">Precio:</label>
+                                        <input type="number" class="form-control" name="precio" value="<?php echo($fila['precio']); ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stock">Stock disponible:</label>
+                                        <input type="number" min="0" class="form-control" name="stock" value="<?php echo($fila['stock']); ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary pull-right" name="submit" value="Modificar producto">
+                                    </div>
+                                </form>
+
+                        <?php                      
+                        }
+                        else
+                        {
+                                    $success = '<div class="alert alert-danger">No existe un producto con el ID ingresado.</div>';
+                        
+                        }
+                        // Liberar conjunto de resultados
+                        
+                        // Cerrar la conexion
+                        mysqli_close($conn);
+                    }
+                    ?>
+
+                    <?php
+                        if (isset($_POST["submit"]) && mysqli_num_rows($resultado)==0) {
+                            echo $success;
+                        }                    
+                    ?>
+                
                 </div>
             </div>
         </div>
