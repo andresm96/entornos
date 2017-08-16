@@ -1,4 +1,4 @@
-# Store Ware
+# StoreWare
 Store online para la compra y venta de hardware de alta gama.
 
 ## Características:
