@@ -166,22 +166,35 @@
 
                 $sql = "SELECT * FROM producto WHERE id_subcategoria = 202; ";
                 $resultado = mysqli_query($conn, $sql);
+                $resultado = mysqli_query($conn, $sql);
                 $total_registros=mysqli_num_rows($resultado);
-                while ($fila = mysqli_fetch_array($resultado))
+            ?>
+
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <td><b>Nombre</b></td>
+                          <td><b>Precio Unitario</b></td>
+                          <td><b>Stock</b></td>
+                          <td></td>
+                      </tr>
+                </thead>
+
+                  <tbody>
+                  <?php
+                  while ($fila = mysqli_fetch_array($resultado))
                   {
-              ?>
-              <div class="col-sm-4 col-lg-4 col-md-4">
-                  <div class="thumbnail">
-                      <img src="<?php echo $fila['foto']?>" alt="">
-                      <div class="caption">
-                          <p><a href="#"><?php echo ($fila['nombre']); ?></a>
-                          </p>
-                          <h4>$ <?php echo ($fila['precio']); ?></h4>
-                      </div>
-                      <div class="ratings">
-                      </div>
-                  </div>
-              </div>
+                  ?>
+
+                  <tr>
+                      <td><?php echo ($fila['nombre']); ?></td>
+                      <td>$AR <?php echo ($fila['precio']); ?></td>
+                      <td><?php echo ($fila['stock']); ?></td>
+                      <td><button type="button" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-plus"></span> Add
+                      </button></td>
+                  </tr>
+
                     <?php
                         }
                         // Liberar conjunto de resultados
@@ -189,6 +202,8 @@
                         // Cerrar la conexion
                         mysqli_close($conn);
                     ?>
+                  </tbody>
+               </table>
         </div>
     </div>
 </div>
