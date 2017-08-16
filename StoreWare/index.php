@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+  session_start();
+  $visible=false;
+  if(isset($_SESSION["usuario"])){
+    $visible = true;
+    if($_SESSION["tipo_usu"]==1){
+      $admin = true;
+    }
+    else{
+      $admin = false;
+    }
+  }
+
+ ?>
+
 <head>
 
     <meta charset="utf-8">
@@ -32,10 +48,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="about-services.html">Servicios</a>
+                        <a href="about-services.php">Servicios</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contacto</a>
+                        <a href="contact.php">Contacto</a>
                     </li>
                 </ul>
 
