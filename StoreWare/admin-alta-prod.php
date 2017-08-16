@@ -4,9 +4,8 @@
 
     if (isset($_POST["submit"])) {
 
-        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-        mysqli_select_db($conn, "storeware");
-
+        include("./php/conexion.inc");
+        
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
@@ -15,19 +14,19 @@
 
         // Hacemos una consulta para buscar la categoria
         $sqlcat = "SELECT * from subcategoria where nombre = '$subcategoria'";
-        $resultado = mysqli_query($conn, $sqlcat);
+        $resultado = mysqli_query($con, $sqlcat);
         $fila = mysqli_fetch_array($resultado);
         $idsubcat = $fila['id_subCategoria'];
 
-        $sqlinsert = "INSERT INTO producto (nombre, precio, stock, id_subcategoria, img) VALUES ('$nombre', '$precio', '$stock', '$idsubcat', '$img')";
+        $sqlinsert = "INSERT INTO producto (nombre, precio, stock, id_subcategoria, foto) VALUES ('$nombre', '$precio', '$stock', '$idsubcat', '$img')";
 
-        $sucess=mysqli_query($conn, $sqlinsert) or die (mysqli_error($conn));
+        $sucess=mysqli_query($con, $sqlinsert) or die (mysqli_error($con));
 
         if($sucess){
             $success = '<div class="alert alert-success">El producto se ha registrado exitosamente!</div>';
         }
 
-         mysqli_close($conn);
+         mysqli_close($con);
     }
 ?>
 
@@ -109,10 +108,10 @@
                             <input type="text" class="form-control" name="nombre" placeholder="Nombre del producto..." required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="precio" placeholder="Precio del producto..." required>
+                            <input type="number" min="0" class="form-control" name="precio" placeholder="Precio del producto..." required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="stock" placeholder="Stock disponible..." required>
+                            <input type="number" min="0" class="form-control" name="stock" placeholder="Stock disponible..." required>
                         </div>
                         <div class="form-group">
                             <select name="subcategoria" class="form-control">

@@ -19,7 +19,40 @@
   // Finalmente, destruir la sesión.
   session_destroy();
 
-  echo ("Logout exitoso<br><br>");
-  echo ("<A href='../index.php'>Volver a Home</A>");
+  $success = '<div class="alert alert-success">Logout realizado con exito!</div>';
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Autor: Andres
+         Ultima modificacion: 24/03/2017 -->
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+	   type="text/css"/>
+    <link href="../css/styles-css/custom-login.css" rel="stylesheet"
+	   type="text/css"/>
+    <title>Login</title>
+</head>
+<body>
+
+<!-- Login content -->
+    <div class="container">
+
+        <!-- Cabecera -->
+        <div class="container-header">
+            <h4><span class="glyphicon glyphicon-lock"></span> Logout</h4>
+        </div>
+
+        <!-- Cuerpo -->
+        <div class="container-body">
+            <?php
+                echo $success;
+            ?>
+        <a href="../index.php"><button class="btn btn-primary">Volver a StoreWare!</button></a>
+        </div>
+    </div>
+
+</body>
+</html>

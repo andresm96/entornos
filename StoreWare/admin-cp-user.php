@@ -85,8 +85,7 @@
                     </form><hr>
 
                     <?php
-                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                        mysqli_select_db($conn, "storeware");
+                        include("./php/conexion.inc");
 
                         if (isset($_POST['cliente'])) {
 
@@ -103,7 +102,7 @@
                             }
 
                             $sql = "SELECT * FROM cliente where tipo_usu like '$subcat%'";
-                            $resultado = mysqli_query($conn, $sql);
+                            $resultado = mysqli_query($con, $sql);
                             $total_registros=mysqli_num_rows($resultado);
 
                             ?>
@@ -143,7 +142,7 @@
                                         // Liberar conjunto de resultados
                                         mysqli_free_result($resultado);
                                         // Cerrar la conexion
-                                        mysqli_close($conn);
+                                        mysqli_close($con);
                             }
                             ?>
                         </tbody>

@@ -2,8 +2,7 @@
 
 <?php
     if (isset($_POST["submit"])) {
-      $conn = mysqli_connect("localhost","root") or die("Problemas de conexion a la base de datos");
-      mysqli_select_db($conn,"storeware");
+      include("./php/conexion.inc");
 
       $nombre = $_POST['nombre'];
       $apellido = $_POST['apellido'];
@@ -16,13 +15,16 @@
 
       $sqlinsert = "INSERT INTO cliente (nombre,apellido,direccion,telefono,email,tipo_usu,usuario,contrasenia)
           VALUES ('$nombre','$apellido','$direccion','$telefono','$email','$tipo_usu','$usuario','$contrasenia')";
-      $sucess = mysqli_query($conn,$sqlinsert) or die (mysqli_error($conn));
+      $sucess = mysqli_query($con,$sqlinsert) or die (mysqli_error($con));
 
       if($sucess){
-          $success = '<div class="alert alert-success">El cliente se ha registrado exitosamente!</div>';
+          $success = '<div class="alert alert-success">El usuario se ha registrado exitosamente!</div>';
+      }
+      else {
+          $success = '<div class="alert alert-danger">Ha ocurrido un error inexplicable!</div>';
       }
 
-      mysqli_close($conn);
+      mysqli_close($con);
 
     }
 

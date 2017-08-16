@@ -4,8 +4,7 @@
 
     if (isset($_POST["submit"])) {
 
-        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-        mysqli_select_db($conn, "storeware");
+        include("./php/conexion.inc");
 
         $bajaId = $_POST['idbaja'];
 
@@ -13,12 +12,12 @@
 
         $consulta = "SELECT * from producto WHERE id_producto=$bajaId";
 
-        $resultado=mysqli_query($conn, $consulta) or die (mysqli_error($conn));
+        $resultado=mysqli_query($con, $consulta) or die (mysqli_error($con));
 
         if(mysqli_num_rows($resultado) != 0) {
 
             $consulta = "DELETE FROM producto WHERE id_producto=$bajaId";
-            $resultado=mysqli_query($conn, $consulta);
+            $resultado=mysqli_query($con, $consulta);
 
             if($resultado) {
                 $resultado = '<div class="alert alert-success">El producto se ha eliminado exitosamente!</div>';
@@ -33,7 +32,7 @@
         }
 
         // mysqli_free_result($resultado);
-        mysqli_close($conn);
+        mysqli_close($con);
     }
 ?>
 

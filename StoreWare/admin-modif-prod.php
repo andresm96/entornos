@@ -83,8 +83,7 @@
                     </form>
 
                     <?php
-                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                        mysqli_select_db($conn, "storeware");
+                        include("./php/conexion.inc");
 
                         if (isset($_POST['idmodif'])) {
 
@@ -93,7 +92,7 @@
 
                             $sql = "SELECT * FROM producto where id_producto=$idmodif";
 
-                            $resultado = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                            $resultado = mysqli_query($con, $sql) or die (mysqli_error($con));
 
                             $fila = mysqli_fetch_array($resultado);
 
@@ -102,7 +101,7 @@
                                 $_SESSION["idprod"] = $idmodif;
                                 ?>
                                 <hr>
-                                <form class="form-group" action="php/commit-modif.php" method="post">
+                                <form class="form-group" action="php/commit-modif-prod.php" method="post">
                                     <div class="form-group">
                                         <label for="nombre">ID seleccionado:</label>
                                         <input type="number" class="form-control" name="id" value="<?php echo($fila['id_producto']); ?>" disabled>
@@ -134,7 +133,7 @@
                         // Liberar conjunto de resultados
 
                         // Cerrar la conexion
-                        mysqli_close($conn);
+                        mysqli_close($con);
                     }
                     ?>
 

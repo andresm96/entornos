@@ -42,6 +42,7 @@ body {
 .container-body {
     padding:40px 50px;
     background: #fff;
+    text-align: center;
 }
 
 .align {
