@@ -52,7 +52,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../../checkout.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="../../../../carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <?php
                         if ($visible) {
                             echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
@@ -185,43 +185,44 @@
                 $total_registros=mysqli_num_rows($resultado);
             ?>
 
-              <table class="table table-striped">
-                  <thead>
-                      <tr>
-                          <td><b>Nombre</b></td>
-                          <td><b>Precio Unitario</b></td>
-                          <td><b>Stock</b></td>
-                          <td></td>
-                      </tr>
-                </thead>
+              <form method="POST" action="../../carro/agregacar.php">
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <td><b>Nombre</b></td>
+                              <td><b>Precio Unitario</b></td>
+                              <td><b>Stock</b></td>
+                              <td></td>
+                          </tr>
+                    </thead>
 
-                  <tbody>
-                  <?php
-                  while ($fila = mysqli_fetch_array($resultado))
-                  {
-                  ?>
-
-                  <tr>
-                      <td><?php echo ($fila['nombre']); ?></td>
-                      <td>$AR <?php echo ($fila['precio']); ?></td>
-                      <td><?php echo ($fila['stock']); ?></td>
+                      <tbody>
                       <?php
-                       if (isset ($_SESSION['usuario'])) {
-                         echo ("<td><button type="."button"." class="."btn btn-default btn-sm".">");
-                        echo ("<span class="."glyphicon glyphicon-plus"."></span> Add");
-                        echo ("</button></td>"); }
+                      while ($fila = mysqli_fetch_array($resultado))
+                      {
                       ?>
-                  </tr>
+                      <tr>
+                          <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
+                          <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
+                          <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
+                          <?php
+                           if (isset ($_SESSION['usuario'])) {
+                             echo ("<td><button id=".$fila['id_producto']."type="."submit"." class="."btn btn-default btn-sm".">");
+                            echo ("<span class="."glyphicon glyphicon-plus"."></span> Add");
+                            echo ("</button></td>"); }
+                          ?>
+                      </tr>
 
-                    <?php
-                        }
-                        // Liberar conjunto de resultados
-                        mysqli_free_result($resultado);
-                        // Cerrar la conexion
-                        mysqli_close($conn);
-                    ?>
-                  </tbody>
-               </table>
+                        <?php
+                            }
+                            // Liberar conjunto de resultados
+                            mysqli_free_result($resultado);
+                            // Cerrar la conexion
+                            mysqli_close($conn);
+                        ?>
+                      </tbody>
+                   </table>
+                </form>
         </div>
     </div>
 </div>
