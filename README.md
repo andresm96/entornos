@@ -7,7 +7,7 @@ Store online para la compra y venta de hardware de alta gama.
 * Carritos de compras
 * PHP 7
 
-#Realizado por:
+# Realizado por:
 * Malvestic
 * Neucoas
 * Onida
