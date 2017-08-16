@@ -50,7 +50,7 @@
                               </li>");
                           }
                           ?>
-                          <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                          <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                           <?php
                       }
                       else {
