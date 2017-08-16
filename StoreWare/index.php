@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+  session_start();
+  $visible=false;
+  if(isset($_SESSION["usuario"]){
+    $visible = true;
+    if($_SESSION["tipo_usu"]==1){
+      $admin = true;
+    }
+    else{
+      $admin = false;
+    }
+  }
+
+ ?>
+
 <head>
 
     <meta charset="utf-8">
