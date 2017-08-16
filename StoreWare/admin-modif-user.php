@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
 ?>
 <!DOCTYPE html>
@@ -35,8 +35,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+                      <li><a><span class="glyphicon glyphicon-user"></span> <?php echo ("$_SESSION[usuario]"); ?></a></li>
+                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,12 +70,12 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="col-md-7 col-md-offset-1">
                     <h1>Modificar un usuario</h1>
                     <hr>
                     <form class="form-group" action="admin-modif-user.php" method="post">
-                        <div class="form-group">    
+                        <div class="form-group">
                             <input class="form-control" type="number" min="0" name="idmodif" placeholder="Ingrese el ID del usuario a modificar" required>
                         </div>
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
@@ -140,15 +140,15 @@
                                     </div>
                                 </form>
 
-                        <?php                      
+                        <?php
                         }
                         else
                         {
                                     $success = '<div class="alert alert-danger">No existe un usuario con el ID ingresado.</div>';
-                        
+
                         }
                         // Liberar conjunto de resultados
-                        
+
                         // Cerrar la conexion
                         mysqli_close($conn);
                     }
@@ -157,9 +157,9 @@
                     <?php
                         if (isset($_POST["submit"]) && mysqli_num_rows($resultado)==0) {
                             echo $success;
-                        }                    
+                        }
                     ?>
-                
+
                 </div>
             </div>
         </div>
