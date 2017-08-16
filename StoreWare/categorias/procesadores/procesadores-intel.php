@@ -50,7 +50,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../../checkout.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="../../../../carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <?php
                         if ($visible) {
                             echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
