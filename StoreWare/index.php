@@ -10,6 +10,7 @@
     <title>StoreWare</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="css/styles-css/custom-index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -178,67 +179,18 @@
                     </div>
 
                 </div>
-
+                <hr>
+                <h2 class="title-sponsors">Powered By</h2>
+                <hr>
                 <div class="row">
-                  <?php
-                      $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                      mysqli_select_db($conn, "storeware");
-
-                      $sql = "SELECT * FROM producto WHERE id_subcategoria = 401; ";
-                      $resultado = mysqli_query($conn, $sql);
-                      $total_registros=mysqli_num_rows($resultado);
-                      $fila = mysqli_fetch_array($resultado)
-                  ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="src/img/motherboard-am4.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
-                                <h4><a href="#">Motherboard - AM4</a>
-                                </h4>
-                                <p><?php echo ($fila['nombre']); ?>.</p>
-                            </div>
-                            <div class="ratings">
-                            </div>
-                        </div>
+                        <img src="src/img/intel.jpg" alt="intel" class="img-sponsor">
                     </div>
-                    <?php
-                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                        mysqli_select_db($conn, "storeware");
-
-                        $sql = "SELECT * FROM producto WHERE id_subcategoria = 302; ";
-                        $resultado = mysqli_query($conn, $sql);
-                        $total_registros=mysqli_num_rows($resultado);
-                        $fila = mysqli_fetch_array($resultado)
-                    ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="src/img/memorias-ddr4.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
-                                <h4><a href="#">Memorias - DDR4</a></h4>
-                                <p><?php echo ($fila['nombre']); ?>.</p>
-                            </div>
-                        </div>
+                        <img src="src/img/msi.png" alt="msi" class="img-sponsor">
                     </div>
-                    <?php
-                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                        mysqli_select_db($conn, "storeware");
-
-                        $sql = "SELECT * FROM producto WHERE id_subcategoria = 502; ";
-                        $resultado = mysqli_query($conn, $sql);
-                        $total_registros=mysqli_num_rows($resultado);
-                        $fila = mysqli_fetch_array($resultado)
-                    ?>
                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="src/img/procesadores-intel.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">$<?php echo ($fila['precio']); ?></h4>
-                                <h4><a href="#">Procesadores - Intel</a></h4>
-                                <p><?php echo ($fila['nombre']); ?>.</p>
-                            </div>
-                        </div>
+                        <img src="src/img/nvidia.jpg" alt="nvidia" class="img-sponsor">
                     </div>
 
                 </div>
