@@ -16,7 +16,7 @@
   }
   else{
     $vFila = mysqli_data_seek ($vResultado, 0);
-    $vExtraido = mysqli_fetch_array($vResulto);
+    $vExtraido = mysqli_fetch_array($vFila);
     $_SESSION["usuario"] = $vExtraido[8];
     $_SESSION["admin"] = isAdmin($vExtraido);
     echo ("Login exitoso<br><br>");
