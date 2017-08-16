@@ -1,3 +1,5 @@
+<?php include("restrict.php") ?>
+
 <?php
     if (isset($_POST["submit"])) {
       $conn = mysqli_connect("localhost","root") or die("Problemas de conexion a la base de datos");

@@ -1,4 +1,5 @@
-<?php 
+<?php include("restrict.php") ?>
+<?php
     session_start();
 ?>
 <!DOCTYPE html>
@@ -70,12 +71,12 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="col-md-7 col-md-offset-1">
                     <h1>Modificar un producto</h1>
                     <hr>
                     <form class="form-group" action="admin-modif-prod.php" method="post">
-                        <div class="form-group">    
+                        <div class="form-group">
                             <input class="form-control" type="number" min="0" name="idmodif" placeholder="Ingrese el ID del producto a modificar" required>
                         </div>
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
@@ -125,15 +126,15 @@
                                     </div>
                                 </form>
 
-                        <?php                      
+                        <?php
                         }
                         else
                         {
                                     $success = '<div class="alert alert-danger">No existe un producto con el ID ingresado.</div>';
-                        
+
                         }
                         // Liberar conjunto de resultados
-                        
+
                         // Cerrar la conexion
                         mysqli_close($conn);
                     }
@@ -142,9 +143,9 @@
                     <?php
                         if (isset($_POST["submit"]) && mysqli_num_rows($resultado)==0) {
                             echo $success;
-                        }                    
+                        }
                     ?>
-                
+
                 </div>
             </div>
         </div>
