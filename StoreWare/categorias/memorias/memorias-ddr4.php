@@ -43,16 +43,32 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="../../about-services.html">Servicios</a>
+                        <a href="../../about-services.php">Servicios</a>
                     </li>
                     <li>
-                        <a href="../../contact.html">Contacto</a>
+                        <a href="../../contact.php">Contacto</a>
                     </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="../../checkout.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                    <li><a href="../../login.html"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a></li>
+                    <?php
+                        if ($visible) {
+                            echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
+                            "</b></a></li>");
+                            if ($admin) {
+                                echo ("<li>
+                                <a href="."admin-cp.php".">Panel de Control</a>
+                                </li>");
+                            }
+                            ?>
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            <?php
+                        }
+                        else {
+                          ?>
+                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                        <?php }  ?>
                 </ul>
             </div>
         </div>
@@ -189,9 +205,12 @@
                       <td><?php echo ($fila['nombre']); ?></td>
                       <td>$AR <?php echo ($fila['precio']); ?></td>
                       <td><?php echo ($fila['stock']); ?></td>
-                      <td><button type="button" class="btn btn-default btn-sm">
-                      <span class="glyphicon glyphicon-plus"></span> Add
-                      </button></td>
+                      <?php
+                       if (isset ($_SESSION['usuario'])) {
+                         echo ("<td><button type="."button"." class="."btn btn-default btn-sm".">");
+                        echo ("<span class="."glyphicon glyphicon-plus"."></span> Add");
+                        echo ("</button></td>"); }
+                      ?>
                   </tr>
 
                     <?php
