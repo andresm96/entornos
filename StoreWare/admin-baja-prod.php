@@ -5,27 +5,33 @@
         $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
         mysqli_select_db($conn, "storeware");
 
-        $nombre = $_POST['nombre'];
-        $precio = $_POST['precio'];
-        $stock = $_POST['stock'];
-        $subcategoria = $_POST['subcategoria'];
-        $img = "0";
+        $bajaId = $_POST['idbaja'];
 
-        // Hacemos una consulta para buscar la categoria
-        $sqlcat = "SELECT * from subcategoria where nombre = '$subcategoria'";
-        $resultado = mysqli_query($conn, $sqlcat);
-        $fila = mysqli_fetch_array($resultado);
-        $idsubcat = $fila['id_subCategoria'];
+        //Hacemos la consulta para verificar si el ID existe
 
-        $sqlinsert = "INSERT INTO producto (nombre, precio, stock, id_subcategoria, img) VALUES ('$nombre', '$precio', '$stock', '$idsubcat', '$img')";
+        $consulta = "SELECT * from producto WHERE id_producto=$bajaId";
 
-        $sucess=mysqli_query($conn, $sqlinsert) or die (mysqli_error($conn));
+        $resultado=mysqli_query($conn, $consulta) or die (mysqli_error($conn));
 
-        if($sucess){
-            $success = '<div class="alert alert-success">El producto se ha registrado exitosamente!</div>';
+        if(mysqli_num_rows($resultado) != 0) {
+
+            $consulta = "DELETE FROM producto WHERE id_producto=$bajaId";
+            $resultado=mysqli_query($conn, $consulta);
+
+            if($resultado) {
+                $resultado = '<div class="alert alert-success">El producto se ha eliminado exitosamente!</div>';
+            }
+            else {
+                $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
+            }
+        }
+        else {
+            
+            $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
         }
 
-         mysqli_close($conn);
+        // mysqli_free_result($resultado);
+        mysqli_close($conn);
     }
 ?>
 
@@ -81,8 +87,8 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a href="admin-cp.php">Listado</a></li>
-                                <li role="presentation" class="active"><a href="admin-alta-prod.php">Alta</a></li>
-                                <li role="presentation"><a href="admin-baja-prod.php">Baja</a></li>
+                                <li role="presentation"><a href="admin-alta-prod.php">Alta</a></li>
+                                <li role="presentation" class="active"><a href="admin-baja-prod.php">Baja</a></li>
                                 <li role="presentation"><a href="admin-modif-prod.php">Modificacion</a></li>
                             </ul>
                         </li>
@@ -100,42 +106,21 @@
                 </div>
 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Alta de un nuevo producto</h1> <hr>
+                    <h1>Baja de un nuevo producto</h1> <hr>
 
-                    <form class="form-group" action="admin-alta-prod.php" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre del producto..." required>
+                    <form class="form-group" action="admin-baja-prod.php" method="post">
+                        <div class="form-group">    
+                            <input class="form-control" type="number" min="0" name="idbaja" placeholder="Ingrese el ID del elemento a eliminar" required>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="precio" placeholder="Precio del producto..." required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="stock" placeholder="Stock disponible..." required>
-                        </div>
-                        <div class="form-group">
-                            <select name="subcategoria" class="form-control">
-                                <option>HDD</option>
-                                <option>SDD</option>
-                                <option>Genericas</option>
-                                <option>80+</option>
-                                <option>DDR3</option>
-                                <option>DDR4</option>
-                                <option>AM4</option>
-                                <option>1150</option>
-                                <option>AMD</option>
-                                <option>Intel</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
-                            <input type="submit" class="btn btn-primary pull-right" name="submit" value="Cargar producto">
-                        </div>
-
+                        <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
+                        <input type="submit" class="btn btn-danger pull-right" name="submit" value="Eliminar">
+                        <br><br>
                         <?php
                             if (isset($_POST["submit"])) {
-                                echo $success;
+                                echo $resultado;
                             }
                         ?>
+
                     </form>
                 </div>
             </div>
