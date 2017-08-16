@@ -22,14 +22,14 @@
 
         <!-- Cuerpo -->
         <div class="container-body">
-            <form role="form" action="php/login.php">
+            <form role="form" action="../php/login.php" method="post">
                 <div class="form-group">
-                    <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuario</label>
-                    <input type="text" class="form-control" id="usrname" placeholder="Ingrese Usuario">
+                    <label for="username"><span class="glyphicon glyphicon-user"></span> Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese Usuario">
                 </div>
                 <div class="form-group">
-                    <label for="psw"><span class="glyphicon glyphicon-eye-close"></span> Contraseña</label>
-                    <input type="password" class="form-control" id="psw" placeholder="Ingrese Contraseña">
+                    <label for="password"><span class="glyphicon glyphicon-eye-close"></span> Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese Contraseña">
                 </div>
                 <label><input type="checkbox" value="" checked> Recuérdame</label>
                 <button type="submit" class="btn btn-info align" style="align: right;">

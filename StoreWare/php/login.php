@@ -3,21 +3,21 @@
   session_start();
 
   $_SESSION["usuario"] = NULL;
-  $vUsuario=$_POST['usrname'];
-  $vContraseña=$_POST['psw'];
+  $vUsuario=$_POST["username"];
+  $vContraseña=$_POST["password"];
 
   $vSql = "SELECT usuario FROM cliente WHERE usuario='$vUsuario'";
   $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
-  $vCantFilas = $vResultado->num_rows;
+  $vCantFilas = mysqli_num_rows($vResultado);
 
   if ($vCantFilas ==0){
     echo ("El Usuario no Existe<br><br>");
     echo ("<A href='../login.html'>Volver</A>");
   }
   else{
-    $vFila = mysqli_data_seek ($vResultado, 0);
-    $vExtraido = mysqli_fetch_array($vFila);
-    $_SESSION["usuario"] = $vExtraido[8];
+    $vFila = mysqli_fetch_assoc($vResultado);
+    $vExtraido = mysqli_fetch_array($vFila,0);
+    $_SESSION["usuario"] = $vExtraido["usuario"];
     $_SESSION["admin"] = isAdmin($vExtraido);
     echo ("Login exitoso<br><br>");
     echo ("<A href='../index.html'>Volver</A>");
