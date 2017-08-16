@@ -71,7 +71,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <h1 class="error401">401</h1>
-                <p class="error401">Usted no tiene autorización para ver esta página.</p>
+                <p class="error401">You shouldn't be here!</p>
             </div>
         </div>
     </div>
