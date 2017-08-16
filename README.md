@@ -1,7 +1,5 @@
 # Store Ware
-## Store online para la compra y venta de hardware de alta gama.
-
----
+Store online para la compra y venta de hardware de alta gama.
 
 ## Características:
 * Manejo de sesión
