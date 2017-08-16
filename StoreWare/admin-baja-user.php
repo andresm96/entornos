@@ -90,7 +90,7 @@
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a href="admin-cp.php">Listado</a></li>
                                 <li role="presentation"><a href="admin-alta-prod.php">Alta</a></li>
-                                <li role="presentation" class="active"><a href="admin-baja-prod.php">Baja</a></li>
+                                <li role="presentation"><a href="admin-baja-prod.php">Baja</a></li>
                                 <li role="presentation"><a href="admin-modif-prod.php">Modificacion</a></li>
                             </ul>
                         </li>
@@ -100,7 +100,7 @@
                             <ul class="dropdown-menu">
                                 <li role="presentation"><a href="admin-cp-user.php">Listado</a></li>
                                 <li role="presentation"><a href="admin-alta-user.php">Alta</a></li>
-                                <li role="presentation"><a href="admin-baja-user.php">Baja</a></li>
+                                <li role="presentation" class="active"><a href="admin-baja-user.php">Baja</a></li>
                                 <li role="presentation"><a href="admin-modif-user.php">Modificacion</a></li>
                             </ul>
                         </li>
