@@ -84,8 +84,7 @@
                     </form>
 
                     <?php
-                        $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                        mysqli_select_db($conn, "storeware");
+                        include("./php/conexion.inc");
 
                         if (isset($_POST['idmodif'])) {
 
@@ -93,7 +92,7 @@
 
                             $sql = "SELECT * FROM cliente where id_cliente=$idmodif";
 
-                            $resultado = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+                            $resultado = mysqli_query($con, $sql) or die (mysqli_error($con));
 
                             $fila = mysqli_fetch_array($resultado);
 
@@ -150,7 +149,7 @@
                         // Liberar conjunto de resultados
 
                         // Cerrar la conexion
-                        mysqli_close($conn);
+                        mysqli_close($con);
                     }
                     ?>
 
