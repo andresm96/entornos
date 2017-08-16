@@ -1,3 +1,5 @@
+<?php include("restrict.php") ?>
+
 <?php
 
     if (isset($_POST["submit"])) {

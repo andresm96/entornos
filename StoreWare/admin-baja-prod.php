@@ -1,3 +1,5 @@
+<?php include("restrict.php") ?>
+
 <?php
 
     if (isset($_POST["submit"])) {
@@ -26,7 +28,7 @@
             }
         }
         else {
-            
+
             $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
         }
 
@@ -109,7 +111,7 @@
                     <h1>Baja de un producto</h1> <hr>
 
                     <form class="form-group" action="admin-baja-prod.php" method="post">
-                        <div class="form-group">    
+                        <div class="form-group">
                             <input class="form-control" type="number" min="0" name="idbaja" placeholder="Ingrese el ID del producto a eliminar" required>
                         </div>
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>

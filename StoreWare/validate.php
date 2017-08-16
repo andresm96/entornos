@@ -2,6 +2,7 @@
 
   session_start();
   $visible=false;
+  $admin=false;
   if(isset($_SESSION["usuario"])){
     $visible = true;
     if($_SESSION["admin"]){

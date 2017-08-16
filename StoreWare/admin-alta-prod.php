@@ -1,3 +1,5 @@
+<?php include("restrict.php") ?>
+
 <?php
 
     if (isset($_POST["submit"])) {
@@ -130,7 +132,7 @@
                             <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
                             <input type="submit" class="btn btn-primary pull-right" name="submit" value="Cargar producto">
                         </div>
-                    
+
                         <?php
                             if (isset($_POST["submit"])) {
                                 echo $success;
