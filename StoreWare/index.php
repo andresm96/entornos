@@ -7,7 +7,7 @@
   $visible=false;
   if(isset($_SESSION["usuario"])){
     $visible = true;
-    if($_SESSION["tipo_usu"]==1){
+    if($_SESSION["admin"]){
       $admin = true;
     }
     else{
@@ -57,7 +57,25 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="checkout.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                    <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</a></li>
+
+                    <<?php
+                        if ($visible) {
+                          echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
+                  				"</b></a></li>");
+                          if ($admin) {
+                            echo ("<li>
+                                    <a href="."admin-cp.php".">Panel de Control</a>
+                                  </li>");
+                          }
+                				?><li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li><?php
+
+                        }
+                        else { ?>
+                          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                        <?php
+                        }
+                        ?>
+
                 </ul>
             </div>
         </div>
