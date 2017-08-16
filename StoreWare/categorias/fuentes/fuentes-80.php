@@ -59,7 +59,7 @@
                             "</b></a></li>");
                             if ($admin) {
                                 echo ("<li>
-                                <a href="."admin-cp.php".">Panel de Control</a>
+                                <a href="."../../admin-cp.php".">Panel de Control</a>
                                 </li>");
                             }
                             ?>
@@ -68,7 +68,7 @@
                         }
                         else {
                           ?>
-                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                            <li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                         <?php }  ?>
                 </ul>
             </div>
