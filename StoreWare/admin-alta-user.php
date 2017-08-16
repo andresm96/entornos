@@ -1,26 +1,28 @@
 <?php
     if (isset($_POST["submit"])) {
-      $conn = mysqli_connect("localhost","root") or die("Problemas de conexion a la base de datos";
+      $conn = mysqli_connect("localhost","root") or die("Problemas de conexion a la base de datos");
       mysqli_select_db($conn,"storeware");
 
       $nombre = $_POST['nombre'];
       $apellido = $_POST['apellido'];
       $direccion = $_POST['direccion'];
-      $fecha_nac = $_POST['fechaNac'];
       $telefono = $_POST['telefono'];
       $email = $_POST['email'];
-      $tipo_usu = $_POST['tipoUsu'];
+      $tipo_usu = $_POST['tipo_usu'];
       $usuario = $_POST['usuario'];
-      $contraseña = $_POST['contraseña'];
+      $contrasenia = $_POST['contrasenia'];
 
-      $sqlinsert = "INSERT INTO cliente (nombre,apellido,direccion,fechaNac,telefono,email,tipoUsu,usuario,contraseña) VALUES ('$nombre','$apellido','$direccion','$fecha_nac','$telefono','$email','$tipo_usu','$usuario','$contraseña')";
+      $sqlinsert = "INSERT INTO cliente (nombre,apellido,direccion,telefono,email,tipo_usu,usuario,contrasenia)
+          VALUES ('$nombre','$apellido','$direccion','$telefono','$email','$tipo_usu','$usuario','$contrasenia')";
       $sucess = mysqli_query($conn,$sqlinsert) or die (mysqli_error($conn));
       if($sucess){
           $success = '<div class="alert alert-success">El cliente se ha registrado exitosamente!</div>';
       }
 
-      mysqli_close($conn)
+      mysqli_close($conn);
+
     }
+
  ?>
  <!DOCTYPE html>
  <html>
@@ -92,9 +94,9 @@
                  </div>
 
                  <div class="col-md-7 col-md-offset-1">
-                     <h1>Alta de un nuevo producto</h1> <hr>
+                     <h1>Alta de un nuevo Usuario</h1> <hr>
 
-                     <form class="form-group" action="admin-alta-prod.php" method="post">
+                     <form class="form-group" action="admin-alta-user.php" method="post">
                          <div class="form-group">
                              <input type="text" class="form-control" name="nombre" placeholder="Nombre del cliente..." required>
                          </div>
@@ -105,16 +107,13 @@
                              <input type="text" class="form-control" name="direccion" placeholder="Direccion del cliente..." required>
                          </div>
                          <div class="form-group">
-                             <input type="text" class="form-control" name="fechaNac" placeholder="Fecha de nacimiento del cliente..." required>
+                             <input type="number" class="form-control" name="telefono" placeholder="Telefono del cliente..." required>
                          </div>
                          <div class="form-group">
-                             <input type="text" class="form-control" name="telefono" placeholder="Telefono del cliente..." required>
+                             <input type="email" class="form-control" name="email" placeholder="Email del cliente..." required>
                          </div>
                          <div class="form-group">
-                             <input type="text" class="form-control" name="email" placeholder="Email del cliente..." required>
-                         </div>
-                         <div class="form-group">
-                             <select name="tipoUsu" class="form-control">
+                             <select name="tipo_usu" class="form-control">
                                  <option value="1">Admin</option>
                                  <option value="0">Cliente</option>
                              </select>
@@ -123,7 +122,7 @@
                              <input type="text" class="form-control" name="usuario" placeholder="Usuario del cliente..." required>
                          </div>
                          <div class="form-group">
-                             <input type="text" class="form-control" name="contraseña" placeholder="Contraseña del cliente..." required>
+                             <input type="password" class="form-control" name="contrasenia" placeholder="Contraseña del cliente..." required>
                          </div>
                          <div class="form-group">
                              <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
