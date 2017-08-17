@@ -182,6 +182,7 @@
                       while ($fila = mysqli_fetch_array($resultado))
                       {
                       ?>
+
                       <form method="POST" action="../../carro/agregacar.php">
                           <tr>
                               <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
@@ -193,6 +194,7 @@
                               ?>
                           </tr>
                       </form>
+
                         <?php
                             }
                             // Liberar conjunto de resultados
