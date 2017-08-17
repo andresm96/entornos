@@ -178,13 +178,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="src/img/intel-banner.jpg" alt="">
+                                    <img class="slide-image" src="src/img/intel-banner.jpg" alt="Brand intel">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="src/img/samsung-banner.jpg" alt="">
+                                    <img class="slide-image" src="src/img/samsung-banner.jpg" alt="Brand samsung">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="src/img/asus-banner.png" alt="">
+                                    <img class="slide-image" src="src/img/asus-banner.png" alt="Brand asus">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
