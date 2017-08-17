@@ -1,4 +1,5 @@
 <?php
+    include("restrict.php");
     session_start();
 ?>
 <!DOCTYPE html>

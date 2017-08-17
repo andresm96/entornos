@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php include("restrict.php") ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
