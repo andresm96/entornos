@@ -143,23 +143,26 @@
                 </div>
                 <?php }
                 else{ ?>
-                <p align="center"> <span class="prod"><b>No hay productos seleccionados</b></span>
-                  <br><br>
-                  <a href="../index.php"><button type="button" class="btn btn-primary">Ir al Store</button></a>
+                    <br>
+                    <p align="center"><span class="prod alert alert-warning"><b>No hay productos seleccionados</b></span>
+                    <br><br><br>
+                    <a href="../index.php"><button type="button" class="btn btn-primary">Ir al Store</button></a>
                 <?php }?>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
+    </div>
     <!-- footer -->
     <div class="container">
+        <!-- Footer -->
         <hr>
         <footer>
-                <div class="row" style="text-align:center">
+            <div class="row" style="text-align:center">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; StoreWare 2017 </p>
+                    <p>Copyright &copy; StoreWare 2017 - All rights reserved • Created by Andres, Mauricio, Julian and Tomas.</p>
                 </div>
             </div>
         </footer>
+        <!-- end footer -->
     </div>
 
 </body>

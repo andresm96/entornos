@@ -117,15 +117,16 @@
         <!-- contact form -->
 
         <div class="container">
-            <hr>
             <!-- Footer -->
-            <footer>
-                <div class="row" style="text-align:center">
-                    <div class="col-lg-12">
-                        <p>Copyright &copy; StoreWare 2017</p>
-                    </div>
+        <hr>
+        <footer>
+            <div class="row" style="text-align:center">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; StoreWare 2017 - All rights reserved • Created by Andres, Mauricio, Julian and Tomas.</p>
                 </div>
-            </footer>
+            </div>
+        </footer>
+        <!-- end footer -->
         </div>
     </body>
 </html>

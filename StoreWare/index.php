@@ -222,16 +222,16 @@
 
     <div class="container">
 
-        <hr>
-
         <!-- Footer -->
+        <hr>
         <footer>
             <div class="row" style="text-align:center">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; StoreWare 2017</p>
+                    <p>Copyright &copy; StoreWare 2017 - All rights reserved • Created by Andres, Mauricio, Julian and Tomas.</p>
                 </div>
             </div>
         </footer>
+        <!-- end footer -->
 
     </div>
     <!-- /.container -->

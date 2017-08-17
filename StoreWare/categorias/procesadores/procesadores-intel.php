@@ -211,15 +211,16 @@
 <!-- // FIN CUERPO DE PAGINA // -->
           <!-- /.container -->
           <div class="container">
-              <hr>
               <!-- Footer -->
-              <footer>
-                  <div class="row" style="text-align:center">
-                      <div class="col-lg-12">
-                          <p>Copyright &copy; StoreWare 2017</p>
-                      </div>
-                  </div>
-              </footer>
+        <hr>
+        <footer>
+            <div class="row" style="text-align:center">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; StoreWare 2017 - All rights reserved • Created by Andres, Mauricio, Julian and Tomas.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
           </div>
           <!-- /.container -->
           <!-- jQuery -->
