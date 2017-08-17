@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-    mysqli_select_db($conn, "storeware");
+    include("conexion.inc");
 
     $id = $_SESSION["idprod"];
     $nombre = $_POST['nombre'];
@@ -14,17 +13,17 @@
 
     $sqlUpdate = "UPDATE cliente SET nombre='$nombre', apellido='$apellido', direccion='$direccion', telefono='$telefono', email='$email', usuario='$usuario', contrasenia='$password' WHERE id_cliente=$id";
 
-    $resultado=mysqli_query($conn,$sqlUpdate) or die (mysqli_error($conn));
+    $resultado=mysqli_query($con,$sqlUpdate) or die (mysqli_error($con));
 
     if($resultado)
     {
-        $success = '<div class="alert alert-success">El cliente se ha modificado exitosamente!</div>';
+        $success = '<div class="alert alert-success">El usuario se ha modificado exitosamente!</div>';
     }
     else {
         $success = '<div class="alert alert-danger">Ha ocurrido un error inexplicable!</div>';
     }
 
-    mysqli_close($conn);
+    mysqli_close($con);
 ?>
 
 <!DOCTYPE html>

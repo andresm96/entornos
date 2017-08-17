@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-    mysqli_select_db($conn, "storeware");
+    include("conexion.inc");
 
     $id = $_SESSION["idprod"];
     $nombre = $_POST['nombre'];
@@ -10,7 +9,7 @@
 
     $sqlUpdate = "UPDATE producto SET nombre='$nombre', precio='$precio', stock='$stock' WHERE id_producto=$id";
 
-    $resultado=mysqli_query($conn,$sqlUpdate) or die (mysqli_error($conn));
+    $resultado=mysqli_query($con,$sqlUpdate) or die (mysqli_error($con));
 
     if($resultado)
     {
@@ -20,7 +19,7 @@
         $success = '<div class="alert alert-danger">Ha ocurrido un error inexplicable!</div>';
     }
 
-    mysqli_close($conn);
+    mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
