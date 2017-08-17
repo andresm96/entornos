@@ -2,28 +2,22 @@
 <html lang="en">
 <?php include("../../validate.php") ?>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>1150</title>
-
+    <title>HDD</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../../css/shop-homepage.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 <body>
     <!-- Navigation -->
@@ -49,9 +43,8 @@
                         <a href="../../contact.php">Contacto</a>
                     </li>
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../../../../carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="../../carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     <?php
                         if ($visible) {
                             echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
@@ -73,14 +66,10 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
-
         <div class="row">
-
             <div class="col-md-3">
                 <p class="lead">Categorías</p>
-
                 <div class="panel-group">
                   <div class="panel panel-default">
                     <a data-toggle="collapse" href="#collapse-almacenamiento" class="panel-title">
@@ -98,7 +87,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="panel-group">
                   <div class="panel panel-default">
                     <a data-toggle="collapse" href="#collapse-fuentes" class="panel-title">
@@ -116,7 +104,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="panel-group">
                   <div class="panel panel-default">
                     <a data-toggle="collapse" href="#collapse-memorias" class="panel-title">
@@ -134,7 +121,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="panel-group">
                   <div class="panel panel-default">
                     <a data-toggle="collapse" href="#collapse-motherboards" class="panel-title">
@@ -172,66 +158,59 @@
                 </div>
           </div>
 <!-- // CUERPO DE LA PAGINA // -->
-
 <div class="container">
     <div class="row">
         <div class="col-md-7 col-md-offset-1">
             <?php
-                $conn = mysqli_connect("localhost", "root") or die ("Problemas de conexion a la base de datos");
-                mysqli_select_db($conn, "storeware");
+                include("../../php/conexion.inc");
                 $sql = "SELECT * FROM producto WHERE id_subcategoria = 401; ";
-                $resultado = mysqli_query($conn, $sql);
-                $resultado = mysqli_query($conn, $sql);
+                $resultado = mysqli_query($con, $sql);
                 $total_registros=mysqli_num_rows($resultado);
             ?>
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <td><b>Nombre</b></td>
+                              <td><b>Precio Unitario</b></td>
+                              <td><b>Stock</b></td>
+                              <td></td>
+                          </tr>
+                    </thead>
 
-              <table class="table table-striped">
-                  <thead>
-                      <tr>
-                          <td><b>Nombre</b></td>
-                          <td><b>Precio Unitario</b></td>
-                          <td><b>Stock</b></td>
-                          <td></td>
-                      </tr>
-                </thead>
-
-                  <tbody>
-                  <?php
-                  while ($fila = mysqli_fetch_array($resultado))
-                  {
-                  ?>
-
-                  <tr>
-                      <td><?php echo ($fila['nombre']); ?></td>
-                      <td>$AR <?php echo ($fila['precio']); ?></td>
-                      <td><?php echo ($fila['stock']); ?></td>
+                      <tbody>
                       <?php
-                       if (isset ($_SESSION['usuario'])) {
-                         echo ("<td><button type="."button"." class="."btn btn-default btn-sm".">");
-                        echo ("<span class="."glyphicon glyphicon-plus"."></span> Add");
-                        echo ("</button></td>"); }
+                      while ($fila = mysqli_fetch_array($resultado))
+                      {
                       ?>
-                  </tr>
 
-                    <?php
-                        }
-                        // Liberar conjunto de resultados
-                        mysqli_free_result($resultado);
-                        // Cerrar la conexion
-                        mysqli_close($conn);
-                    ?>
-                  </tbody>
-               </table>
+                      <form method="POST" action="../../carro/agregacar.php">
+                          <tr>
+                              <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
+                              <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
+                              <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
+                              <?php
+                               if (isset ($_SESSION['usuario'])) {
+                                 echo('<td><button type="submit" class="btn btn-default btn-sm">Agregar</button></td>'); }
+                              ?>
+                          </tr>
+                      </form>
+
+                        <?php
+                            }
+                            // Liberar conjunto de resultados
+                            mysqli_free_result($resultado);
+                            // Cerrar la conexion
+                            mysqli_close($con);
+                        ?>
+                      </tbody>
+                 </table>
         </div>
     </div>
 </div>
 <!-- // FIN CUERPO DE PAGINA // -->
           <!-- /.container -->
-
           <div class="container">
-
               <hr>
-
               <!-- Footer -->
               <footer>
                   <div class="row" style="text-align:center">
@@ -240,13 +219,10 @@
                       </div>
                   </div>
               </footer>
-
           </div>
           <!-- /.container -->
-
           <!-- jQuery -->
           <script src="../../js/jquery.js"></script>
-
           <!-- Bootstrap Core JavaScript -->
           <script src="../../js/bootstrap.min.js"></script>
 
