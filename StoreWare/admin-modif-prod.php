@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <p class="lead">Bienvenido Administrador</p>
+                    <p class="lead">Bienvenido <?php echo ("$_SESSION[usuario]"); ?></p>
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
