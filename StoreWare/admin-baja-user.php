@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Baja de un Usuario</h1> <hr>
+                    <h1>Baja de un usuario</h1> <hr>
 
                     <form class="form-group" action="admin-baja-user.php" method="post">
                         <div class="form-group">

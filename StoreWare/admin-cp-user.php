@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Listado de Usuarios</h1>
+                    <h1>Listado de usuarios</h1>
 
                     <form class="form-group" action="admin-cp-user.php" method="post">
                         <div class="input-group">
