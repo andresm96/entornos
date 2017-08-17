@@ -1,6 +1,7 @@
 <?php
-  unset($_SESSION['carro']);
- ?>
+    session_start();
+    unset($_SESSION['carro']);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -24,20 +25,13 @@
 <!-- Login content -->
     <div class="container">
 
-        <!-- Cabecera -->
         <div class="container-body">
             <h1><span class="glyphicon glyphicon-ok"></span> </h1>
-            <h2>Gracias por su compra!</h2>
-            <br><br>
-            <p>Le enviaremos la factura junto a los datos de la compra a su email.</p>
-
-        </div>
-
-        <!-- Cuerpo -->
-        <div class="container-body">
-        <a href="../index.php"><button class="btn btn-primary">Volver a StoreWare!</button></a>
+            <h2>¡Gracias por su compra!</h2>
+            <br>
+            <div class="alert alert-success">Le enviaremos la factura junto a los datos de la compra a su email.</div>
+            <a href="../index.php"><button class="btn btn-primary">Volver a StoreWare!</button></a>
         </div>
     </div>
-
 </body>
 </html>

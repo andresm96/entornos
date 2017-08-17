@@ -185,7 +185,6 @@
                 $total_registros=mysqli_num_rows($resultado);
             ?>
 
-              <form method="POST" action="../../carro/agregacar.php">
                   <table class="table table-striped">
                       <thead>
                           <tr>
@@ -201,16 +200,17 @@
                       while ($fila = mysqli_fetch_array($resultado))
                       {
                       ?>
+                      <form method="POST" action="../../carro/agregacar.php?code=<?php $fila['id_producto'] ?>">
                       <tr>
                           <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
                           <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
                           <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
                           <?php
-                           if (isset ($_SESSION['usuario'])) {
-                             echo ("<td><button id=".$fila['id_producto']."type="."submit"." class="."btn btn-default btn-sm".">");
-                            echo ("<span class="."glyphicon glyphicon-plus"."></span> Add");
-                            echo ("</button></td>"); }
-                          ?>
+                            if (isset ($_SESSION['usuario'])) {
+                                $button='<td><input type="submit" class="btn btn-default" value="Agregar"></input></td>';
+                                echo $button; 
+                            }
+                          ?>                         
                       </tr>
 
                         <?php
