@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="Entornos" content="StoreWare">
-    <title>StoreWare</title>
+    <title>401 Error</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
     <link href="css/styles-css/custom-index.css" rel="stylesheet">

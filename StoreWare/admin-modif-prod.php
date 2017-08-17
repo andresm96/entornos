@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="Entornos" content="StoreWare">
 
-        <title>Administrator CP</title>
+        <title>StoreWare - CP</title>
 
         <link href="css/styles-css/cp-styles.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">

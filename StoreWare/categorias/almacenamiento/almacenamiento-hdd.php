@@ -170,9 +170,9 @@
                   <table class="table table-striped">
                       <thead>
                           <tr>
-                              <td><b>Nombre</b></td>
-                              <td><b>Precio Unitario</b></td>
-                              <td><b>Stock</b></td>
+                              <td><b>ID</b></td>
+                              <td><b>Nombre del producto</b></td>
+                              <td><b>Precio</b></td>
                               <td></td>
                           </tr>
                     </thead>

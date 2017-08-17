@@ -46,7 +46,7 @@
 	   type="text/css"/>
     <link href="../css/styles-css/custom-register.css" rel="stylesheet"
 	   type="text/css"/>
-    <title>Login</title>
+    <title>StoreWare - Registrarse</title>
 </head>
 <body>
 

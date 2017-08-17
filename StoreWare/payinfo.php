@@ -13,7 +13,7 @@
 	   type="text/css"/>
     <link href="../css/styles-css/custom-login.css" rel="stylesheet"
 	   type="text/css"/>
-    <title>Login</title>
+    <title>StoreWare</title>
     <style>
       h1{
         color: green;

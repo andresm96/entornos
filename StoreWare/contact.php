@@ -26,7 +26,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>StoreWare</title>
+        <title>StoreWare - Contacto</title>
 
         <link href="css/styles-css/contactform-styles.css" rel="stylesheet">
         <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

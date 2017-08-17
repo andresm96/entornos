@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>HDD</title>
+    <title>Motherboards 1150</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -170,9 +170,9 @@
                   <table class="table table-striped">
                       <thead>
                           <tr>
-                              <td><b>Nombre</b></td>
-                              <td><b>Precio Unitario</b></td>
-                              <td><b>Stock</b></td>
+                              <td><b>ID</b></td>
+                              <td><b>Nombre del producto</b></td>
+                              <td><b>Precio</b></td>
                               <td></td>
                           </tr>
                     </thead>
