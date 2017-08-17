@@ -79,7 +79,7 @@
     </nav>
 
     <!-- cart table -->
-    <h1 align="center">Su Compra</h1>
+    <h1 align="center">Mi carrito</h1>
     <hr>
     <?php
     if (isset($_SESSION['carro'])) {

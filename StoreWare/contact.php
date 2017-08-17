@@ -1,5 +1,22 @@
 <!DOCTYPE html>
-<?php include("validate.php") ?>
+<?php 
+    include("validate.php");
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+        $sendto = "admin@storeware.com";
+        $formcontent="De: $name \n Mensaje: $message";
+        $mailheader = "De: $email \r\n";
+
+        mail($sendto, $subject, $formcontent, $mailheader);
+        $result = '<div class="alert alert-sucess">Gracias! Tome un cafe, lo contactaremos a la brevedad.</div>';
+    }
+    
+?>
 <html>
     <head>
 
@@ -85,24 +102,37 @@
             <div class="row">
                 <div class="col-md-5 col-md-offset-2">
 
-                    <form name="contactform" method="post" action="php/contact.php" role="form">
+                    <form name="contactform" method="post" action="contact.php" role="form">
 
-                        <input type="text" id="name" name="name" placeholder="Nombre completo..." required="">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Su nombre completo..." required>
+                        </div>
 
-                        <input type="text" id="email" value="" placeholder="Ingrese su email..." required>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Su email..." required>
+                        </div>
 
-                        <select name="sports">
-                          <option value="consulta">Consulta general</option>
-                          <option value="pedido">Realizar un pedido</option>
-                          <option value="problem">Problema en la compra</option>
-                        </select><br><br>
-
-                        <textarea id="message" name="message" placeholder="Escriba su consulta.." style="height:200px" required=""></textarea>
+                        <div class="form-group">
+                            <select name="sports" class="form-control">
+                                <option value="consulta">Consulta general</option>
+                                <option value="pedido">Realizar un pedido</option>
+                                <option value="problem">Problema en la compra</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Escriba su consulta.." style="height:200px" required=""></textarea>
+                        </div>
 
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
-                        <button type="submit" value="submit" class="btn btn-success pull-right">Enviar mensaje</button>
+                        <input type="submit" value="Enviar mensaje" class="btn btn-success pull-right"></input>
 
-                     </form>
+                        <?php
+                        if (isset($_POST['submit'])) {
+                            echo $result;
+                        }
+                        ?>
+
+                     </form>         
                 </div>
                 <div class="col-md-3">
                     <ul>
