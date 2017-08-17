@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include("../validate.php");
-$carro=$_SESSION['carro'];
 ?>
+
 
 <head>
 
@@ -78,99 +78,78 @@ $carro=$_SESSION['carro'];
         </div>
     </nav>
 
-    <!--
+    <!-- cart table -->
+    <h1 align="center">Su Compra</h1>
+    <hr>
+    <?php
+    if (isset($_SESSION['carro'])) {
+      $carro=$_SESSION['carro'];
+      }
+      else {
+        $carro = false;
+      }
+    if($carro){
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <table class="table table-hover table-condensed">
-
                     <thead>
-            <tr>
-              <th style="width:60%">Producto</th>
-              <th style="width:10%">Precio</th>
-              <th style="width:8%">ID</th>
-              <th style="width:12%" class="text-center">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-th="Producto">
-                <div class="row">
-                  <div class="col-md-10">
-                    <p>NOMBRE PRODUCTO</p>
-                  </div>
-                </div>
-              </td>
-              <td data-th="Precio">$1.99</td>
-              <td data-th="ID">1</td>
-              <td data-th="Subtotal" class="text-center">$ PRECIO PRODUCTO</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr class="visible-xs">
-              <td class="text-center"><strong>Total 1.99</strong></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td colspan="2" class="hidden-xs text-right"><strong>Total:</strong></td>
-              <td class="hidden-xs text-center"><strong>$ TOTAL</strong></td>
-            </tr>
-          </tfoot>
+                    <tr>
+                      <th style="width:50%">Producto</th>
+                      <th style="width:20%">Precio</th>
+                      <th style="width:10%">Borrar</th>
+                    </tr>
+                  </thead>
+                <?php
+                $suma=0;
+                foreach($carro as $k => $v){
+                $subto=$v['precio'];
+                $suma=$suma+$subto;
+                ?>
+                <form name="a<?php echo $v['identificador'] ?>" method="post" action="agregacar.php?<?php echo SID ?>" id="a<?php echo $v['identificador'] ?>">
+                  <tbody>
+                    <tr>
+                      <td data-th="Producto">
+                        <div class="row">
+                          <div class="col-md-10">
+                            <?php echo $v['producto'] ?>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-th="Precio">$ <?php echo $v['precio'] ?></td>
+                      <td align="center"><a href="borracar.php?<?php echo SID ?>&id=<?php echo $v['identificador'] ?>"><button type="button" name="button" class="btn btn-default">Eliminar</button></a></td>
+                    </tr>
+                  </tbody> </form>
+                <?php }?>
                 </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-2">
-                <a href="index.php"><button type="button" class="btn btn-primary">Continuar comprando</button></a>
-            </div>
-            <div class="col-md-2 col-md-offset-4">
-                <button id="checkout" type="button" class="btn btn-success">Checkout</button>
-            </div>
-        </div>
-    </div> -->
-
-    <h1 align="center">Carrito</h1>
-    <?php
-    $carro=$_SESSION['carro'];
-    if($carro){
-    ?>
-    <table width="720" border="0" cellspacing="0" cellpadding="0" align="center">
-    <td width="105"><b>Producto</b></td>
-    <td width="207"><b>Precio</b></td>
-    <td width="100" align="center"><b>Borrar</b></td>
-    </tr>
-    <?php
-    $suma=0;
-    foreach($carro as $k => $v){
-    $subto=$v['precio'];
-    $suma=$suma+$subto;
-    ?>
-    <form name="a<?php echo $v['identificador'] ?>" method="post" action="agregacar.php?<?php echo SID ?>" id="a<?php echo $v['identificador'] ?>">
-    <td><?php echo $v['producto'] ?></td>
-    <td><?php echo $v['precio'] ?></td>
-    <td align="center"><a href="borracar.php?<?php echo SID ?>&id=<?php echo $v['identificador'] ?>"><img src="trash.gif" width="12" height="14" border="0"></a></td>
-    </tr></form>
-    <?php }?>
-    </table>
-    <br><br>
-    <div align="center"><span class="prod">Total de Artículos: <?php echo count($carro); ?></span>
-    </div><br>
-    <div align="center"><span class="prod">Total: $<?php echo number_format($suma,2); ?></span></div>
-    <br>
-    <div align="center"><span class="prod">Continuar la selección de productos</span>
-    <a href="../index.php?<?php echo SID;?>"><img src="continuar.gif" width="13" height="13" border="0" align="absmiddle"></a>&nbsp;
-    <a href="regpago.php?<?php echo SID;?>&costo=<?php echo $suma; ?>"><img src="finalizarcompra.gif" width="135" height="16" border="0" align="absmiddle"></a>
-    </div>
-    <?php }
-
-    else{ ?>
-    <p align="center"> <span class="prod">No hay productos seleccionados</span> <a href="../index.php?<?php echo SID;?>"><img src="continuar.gif" width="13" height="13" border="0"></a>
-    <?php }?>
-
-
-    <!-- cart table -->
-
-
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td colspan="2" class="hidden-xs text-right"><strong>Total de Articulos:</strong></td>
+                    <td class="hidden-xs text-center"><strong><?php echo count($carro); ?></strong></td>
+                  </tr>
+                  <br><br>
+                  <tr>
+                    <td></td>
+                    <td colspan="2" class="hidden-xs text-right"><strong>Total:</strong></td>
+                    <td class="hidden-xs text-center"><strong>$ <?php echo number_format($suma,2); ?></strong></td>
+                  </tr>
+                </tfoot>
+                <br><br><br>
+                <a href="../index.php"><button type="button" class="btn btn-primary">Continuar comprando</button></a>
+                  <a href="limpiar.php"><button id="clean" type="button" name="button" class="btn btn-danger" >Limpiar Carro</button></a>
+                <a href="../payinfo.php"><button id="checkout" type="button" class="btn btn-success">Checkout</button></a>
+                </div>
+                <?php }
+                else{ ?>
+                <p align="center"> <span class="prod"><b>No hay productos seleccionados</b></span>
+                  <br><br>
+                  <a href="../index.php"><button type="button" class="btn btn-primary">Ir al Store</button></a>
+                <?php }?>
+              </div>
+          </div>
+      </div>
     <!-- footer -->
     <div class="container">
         <hr>
