@@ -6,7 +6,7 @@
     $vUsuario=$_POST["username"];
     $vContraseña=$_POST["password"];
 
-    $vSql = "SELECT * FROM cliente WHERE usuario='$vUsuario'";
+    $vSql = "SELECT * FROM cliente WHERE usuario='$vUsuario' AND contrasenia='$vContraseña'";
     $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
     $vCantFilas = mysqli_num_rows($vResultado);
     $vExtraido = mysqli_fetch_array($vResultado);
@@ -61,4 +61,3 @@
 
 </body>
 </html>
-
