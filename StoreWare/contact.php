@@ -106,14 +106,17 @@
                     <form name="contactform" method="post" action="contact.php" role="form">
 
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Su nombre completo..." required>
+                            <label for="user">Nombre completo</label>
+                            <input type="text" class="form-control" name="name" placeholder="Gabe Newell" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Su email..." required>
+                            <label for="user">E-mail</label>
+                            <input type="email" class="form-control" name="email" placeholder="mimail@midominio.com" required>
                         </div>
 
                         <div class="form-group">
+                            <label for="user">Asunto</label>
                             <select name="sports" class="form-control">
                                 <option value="consulta">Consulta general</option>
                                 <option value="pedido">Realizar un pedido</option>
@@ -121,7 +124,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Escriba su consulta.." style="height:200px" required=""></textarea>
+                            <label for="user">Su consulta, comentarios o sugerencias</label>
+                            <textarea id="message" name="message" placeholder="Amo StoreWare!" style="height:200px" required=""></textarea>
                         </div>
 
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
