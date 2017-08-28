@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a><span class="glyphicon glyphicon-user"></span><b> <?php echo ("$_SESSION[usuario]"); ?></b></a></li>
-                        <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+                        <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -91,6 +91,18 @@
                             $total_registros=mysqli_num_rows($resultado);
 
                             ?>
+
+                            <form class="form-inline" action="admin-baja-modif-user.php" method="post">
+                                <div class="form-group">
+                                    <a class="btn btn-success" href="admin-alta-user.php" role="button">Nuevo usuario</a>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <input type="number" min='0' class="form-control" name="id_user" id="id_user" placeholder="Ingrese ID" required>
+                                    <button type="submit" class="btn btn-warning" name="update" value="update">Modificar</button>
+                                    <button type="submit" class="btn btn-danger" name="delete" value="delete">Eliminar</button>
+                                </div>
+                            </form>
+                            <br>
 
                             <table class="table table-striped">
                                 <thead>

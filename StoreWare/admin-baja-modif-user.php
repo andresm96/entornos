@@ -2,10 +2,10 @@
     include("restrict.php");
     include("./php/conexion.inc");
 
-    $idprod = $_POST['id_prod'];
-    $_SESSION["idprod"] = $idprod;
+    $iduser = $_POST['id_user'];
+    $_SESSION["id_user"] = $iduser;
 
-    $sql = "SELECT * FROM producto where id_producto=$idprod";
+    $sql = "SELECT * FROM cliente where id_cliente=$iduser";
     $resultado = mysqli_query($con, $sql) or die (mysqli_error($con));
     $fila = mysqli_fetch_array($resultado);
 
@@ -68,58 +68,90 @@
                 <div class="col-md-7 col-md-offset-1">
 
                     <?php if(mysqli_num_rows($resultado) > 0 && isset($_POST['update'])) { ?>
-                        <h1>Modificación de producto</h1>
+                        <h1>Modificación de usuario</h1>
                         <hr>
-                        <form class="form-group" action="php/commit-modif-prod.php" method="post">
+                        <form class="form-group" action="php/commit-modif-user.php" method="post">
                             <div class="form-group">
                                 <label for="nombre">ID seleccionado:</label>
-                                <input type="number" class="form-control" name="id" value="<?php echo($fila['id_producto']); ?>" disabled>
+                                <input type="number" class="form-control" name="id" value="<?php echo($fila['id_cliente']); ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="nombre">Nombre del producto:</label>
+                                <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" value="<?php echo($fila['nombre']); ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="precio">Precio:</label>
-                                <input type="number" class="form-control" name="precio" value="<?php echo($fila['precio']); ?>" required>
+                                <label for="precio">Apellido:</label>
+                                <input type="text" class="form-control" name="apellido" value="<?php echo($fila['apellido']); ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="stock">Stock disponible:</label>
-                                <input type="number" min="0" class="form-control" name="stock" value="<?php echo($fila['stock']); ?>" required>
+                                <label for="stock">Direccion:</label>
+                                <input type="text" min="0" class="form-control" name="direccion" value="<?php echo($fila['direccion']); ?>" required>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-warning pull-right" name="submit" value="Modificar producto">
+                                <label for="stock">Telefono:</label>
+                                <input type="text" min="0" class="form-control" name="telefono" value="<?php echo($fila['telefono']); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">E-Mail:</label>
+                                <input type="email" min="0" class="form-control" name="email" value="<?php echo($fila['email']); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Usuario:</label>
+                                <input type="text" min="0" class="form-control" name="usuario" value="<?php echo($fila['usuario']); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Contraseña:</label>
+                                <input type="text" min="0" class="form-control" name="password" value="<?php echo($fila['contrasenia']); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-warning pull-right" name="submit" value="Modificar usuario">
                             </div>
                         </form>
                     <?php } else if(mysqli_num_rows($resultado) > 0 && isset($_POST['delete'])) { ?>
-                        <h1>Baja de un producto</h1>
+                        <h1>Baja de un usuario</h1>
                         <hr>
-                        <form class="form-group" action="php/commit-delete-prod.php" method="post">
+                        <form class="form-group" action="php/commit-delete-user.php" method="post">
                             <div class="form-group">
                                 <label for="nombre">ID seleccionado:</label>
-                                <input type="number" class="form-control" name="id" value="<?php echo($fila['id_producto']); ?>" disabled>
+                                <input type="number" class="form-control" name="id" value="<?php echo($fila['id_cliente']); ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="nombre">Nombre del producto:</label>
+                                <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" name="nombre" value="<?php echo($fila['nombre']); ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="precio">Precio:</label>
-                                <input type="number" class="form-control" name="precio" value="<?php echo($fila['precio']); ?>" disabled>
+                                <label for="precio">Apellido:</label>
+                                <input type="text" class="form-control" name="apellido" value="<?php echo($fila['apellido']); ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="stock">Stock disponible:</label>
-                                <input type="number" min="0" class="form-control" name="stock" value="<?php echo($fila['stock']); ?>" disabled>
+                                <label for="stock">Direccion:</label>
+                                <input type="text" min="0" class="form-control" name="direccion" value="<?php echo($fila['direccion']); ?>" disabled>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-danger pull-right" name="submit" value="Eliminar producto">
+                                <label for="stock">Telefono:</label>
+                                <input type="text" min="0" class="form-control" name="telefono" value="<?php echo($fila['telefono']); ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">E-Mail:</label>
+                                <input type="email" min="0" class="form-control" name="email" value="<?php echo($fila['email']); ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Usuario:</label>
+                                <input type="text" min="0" class="form-control" name="usuario" value="<?php echo($fila['usuario']); ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Contraseña:</label>
+                                <input type="text" min="0" class="form-control" name="password" value="<?php echo($fila['contrasenia']); ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-danger pull-right" name="submit" value="Eliminar usuario">
                             </div>
                         </form>
                     <?php } else { ?>
                         <h1>Gestión de un producto</h1>
                         <hr>
-                        <div class="alert alert-danger">No existe un producto con el ID ingresado, o ha ocurrido un error en la transacción.</div>
-                        <a class="btn btn-primary" href="admin-cp.php" role="button">Volver al listado</a>
+                        <div class="alert alert-danger">No existe un usuario con el ID ingresado, o ha ocurrido un error en la transacción.</div>
+                        <a class="btn btn-primary" href="admin-cp-user.php" role="button">Volver al listado</a>
                     <?php } ?>
                 </div>
         </div>

@@ -2,7 +2,7 @@
     session_start();
     include("conexion.inc");
 
-    $id = $_SESSION["idprod"];
+    $id = $_SESSION["id_user"];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $direccion = $_POST['direccion'];
@@ -61,7 +61,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a><span class="glyphicon glyphicon-user"></span><b> <?php echo ("$_SESSION[usuario]"); ?></b></a></li>
-                        <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+                        <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -82,14 +82,14 @@
                 </div>
                 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Modificar un usuario</h1>
+                    <h1>Modificación de usuario</h1>
                     <hr>
 
                     <?php
                         echo $success;
                     ?>
                     
-                    <a href="../admin-modif-prod.php"><button type="button" class="btn btn-primary">Volver al menu de modificacion</button></a>
+                    <a href="../admin-cp-user.php"><button type="button" class="btn btn-primary">Volver al listado</button></a>
                 </div>
             </div>
         </div>

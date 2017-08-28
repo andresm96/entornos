@@ -64,7 +64,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a><span class="glyphicon glyphicon-user"></span><b> <?php echo ("$_SESSION[usuario]"); ?></b></a></li>
-                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+                      <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                             <input type="text" class="form-control" name="direccion" placeholder="Direccion del usuario..." required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="telefono" placeholder="Telefono del usuario..." required>
+                            <input type="text" class="form-control" name="telefono" placeholder="Telefono del usuario..." required>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="Email del usuario..." required>
