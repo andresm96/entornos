@@ -2,27 +2,27 @@
     session_start();
     include("conexion.inc");
 
-    $id = $_SESSION["idprod"];
+    $iduser = $_SESSION["id_user"];
 
-    $consulta = "SELECT * from producto WHERE id_producto=$id";
+    $consulta = "SELECT * FROM cliente where id_cliente=$iduser";
 
     $resultado=mysqli_query($con, $consulta) or die (mysqli_error($con));
 
     if(mysqli_num_rows($resultado) != 0) {
 
-        $consulta = "DELETE FROM producto WHERE id_producto=$id";
+        $consulta = "DELETE FROM cliente WHERE id_cliente=$iduser";
         $resultado=mysqli_query($con, $consulta);
 
         if($resultado) {
-            $resultado = '<div class="alert alert-success">El producto se ha eliminado exitosamente!</div>';
-        }
-        else {
-            $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
-        }
+                $resultado = '<div class="alert alert-success">El usuario se ha eliminado exitosamente!</div>';
+            }
+            else {
+                $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el usuario</div>';
+            }
     }
     else {
 
-        $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
+        $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el usuario o el mismo no existe.</div>';
     }
 
     // mysqli_free_result($resultado);
@@ -85,14 +85,14 @@
                 </div>
                 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Baja de un producto</h1>
+                    <h1>Baja de un usuario</h1>
                     <hr>
 
                     <?php
                         echo $resultado;
                     ?>
                     
-                    <a href="../admin-cp.php"><button type="button" class="btn btn-primary">Volver al listado</button></a>
+                    <a href="../admin-cp-user.php"><button type="button" class="btn btn-primary">Volver al listado</button></a>
                 </div>
             </div>
         </div>
