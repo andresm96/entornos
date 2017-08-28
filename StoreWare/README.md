@@ -1,13 +1,15 @@
 # StoreWare
+Store online para la compra y venta de hardware de alta gama.
 
-## Getting Started
+## Características:
+* Manejo de sesión.
+* Panel de control para el administrador, con ABM para productos y usuarios.
+* Carritos de compras.
+* PHP 7.
 
-## Bugs and Issues
+# Realizado por:
+* Malvestic
+* Neucoas
+* Onida
+* Tomás
 
-## Creator
-
-* WebSite created by: Malvestiti, Andres / Mino, Mauricio / Poma, Julian / Fiorenza, Tomas
-
-## Copyright and License
-
-Copyright 2017.
