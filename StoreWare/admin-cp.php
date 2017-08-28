@@ -33,7 +33,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a><span class="glyphicon glyphicon-user"></span> <?php echo ("$_SESSION[usuario]"); ?></a></li>
+                      <li><a><span class="glyphicon glyphicon-user"></span><b> <?php echo ("$_SESSION[usuario]"); ?></b></a></li>
                         <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
                     </ul>
                 </div>
@@ -47,25 +47,10 @@
                 <div class="col-md-3">
                     <p class="lead">Bienvenido <?php echo ("$_SESSION[usuario]"); ?></p>
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation" class="active"><a href="admin-cp.php">Listado</a></li>
-                                <li role="presentation"><a href="admin-alta-prod.php">Alta</a></li>
-                                <li role="presentation"><a href="admin-baja-prod.php">Baja</a></li>
-                                <li role="presentation"><a href="admin-modif-prod.php">Modificacion</a></li>
-                            </ul>
-                        </li>
-
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="admin-cp-user.php">Listado</a></li>
-                                <li role="presentation"><a href="admin-alta-user.php">Alta</a></li>
-                                <li role="presentation"><a href="admin-baja-user.php">Baja</a></li>
-                                <li role="presentation"><a href="admin-modif-user.php">Modificacion</a></li>
-                            </ul>
-                        </li>
+                        <li role="presentation" class="active"><a href="admin-cp.php">Listado de productos</a></li>
+                        <li role="presentation"><a href="admin-alta-prod.php">Nuevo producto</a></li>
+                        <li role="presentation"><a href="admin-cp-user.php">Listado de usuarios</a></li>
+                        <li role="presentation"><a href="admin-alta-user.php">Nuevo usuario</a></li>
                     </ul>
                 </div>
 
@@ -124,6 +109,18 @@
                             $total_registros=mysqli_num_rows($resultado);
 
                             ?>
+
+                            <form class="form-inline" action="admin-baja-modif-prod.php" method="post">
+                                <div class="form-group">
+                                    <a class="btn btn-success" href="admin-alta-prod.php" role="button">Nuevo producto</a>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <input type="number" min='0' class="form-control" name="id_prod" id="id_prod" placeholder="Ingrese ID" required>
+                                    <button type="submit" class="btn btn-warning" name="update" value="update">Modificar</button>
+                                    <button type="submit" class="btn btn-danger" name="delete" value="delete">Eliminar</button>
+                                </div>
+                            </form>
+                            <br>
 
                             <table class="table table-striped">
                                 <thead>

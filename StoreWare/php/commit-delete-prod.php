@@ -3,26 +3,29 @@
     include("conexion.inc");
 
     $id = $_SESSION["idprod"];
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $direccion = $_POST['direccion'];
-    $telefono = $_POST['telefono'];
-    $email = $_POST['email'];
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
 
-    $sqlUpdate = "UPDATE cliente SET nombre='$nombre', apellido='$apellido', direccion='$direccion', telefono='$telefono', email='$email', usuario='$usuario', contrasenia='$password' WHERE id_cliente=$id";
+    $consulta = "SELECT * from producto WHERE id_producto=$id";
 
-    $resultado=mysqli_query($con,$sqlUpdate) or die (mysqli_error($con));
+    $resultado=mysqli_query($con, $consulta) or die (mysqli_error($con));
 
-    if($resultado)
-    {
-        $success = '<div class="alert alert-success">El usuario se ha modificado exitosamente!</div>';
+    if(mysqli_num_rows($resultado) != 0) {
+
+        $consulta = "DELETE FROM producto WHERE id_producto=$id";
+        $resultado=mysqli_query($con, $consulta);
+
+        if($resultado) {
+            $resultado = '<div class="alert alert-success">El producto se ha eliminado exitosamente!</div>';
+        }
+        else {
+            $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
+        }
     }
     else {
-        $success = '<div class="alert alert-danger">Ha ocurrido un error inexplicable!</div>';
+
+        $resultado = '<div class="alert alert-danger">Ha habido un error al eliminar el producto</div>';
     }
 
+    // mysqli_free_result($resultado);
     mysqli_close($con);
 ?>
 
@@ -82,14 +85,14 @@
                 </div>
                 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Modificar un usuario</h1>
+                    <h1>Baja de un producto</h1>
                     <hr>
 
                     <?php
-                        echo $success;
+                        echo $resultado;
                     ?>
                     
-                    <a href="../admin-modif-prod.php"><button type="button" class="btn btn-primary">Volver al menu de modificacion</button></a>
+                    <a href="../admin-cp.php"><button type="button" class="btn btn-primary">Volver al listado</button></a>
                 </div>
             </div>
         </div>

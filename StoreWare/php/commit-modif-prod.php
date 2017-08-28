@@ -31,7 +31,7 @@
         <meta name="description" content="">
         <meta name="Entornos" content="StoreWare">
 
-        <title>Administrator CP</title>
+        <title>StoreWare - CP</title>
 
         <link href="../css/styles-css/cp-styles.css" rel="stylesheet">
         <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -51,13 +51,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">StoreWare • Control Panel</a>
+                    <a class="navbar-brand" href="../index.php">StoreWare • Control Panel</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Administrador</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+                      <li><a><span class="glyphicon glyphicon-user"></span><b> <?php echo ("$_SESSION[usuario]"); ?></b></a></li>
+                        <li><a href="php/logout.php"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,39 +68,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <p class="lead">Bienvenido Administrador</p>
+                    <p class="lead">Bienvenido <?php echo ("$_SESSION[usuario]"); ?></p>
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="../admin-cp.php">Listado</a></li>
-                                <li role="presentation"><a href="../admin-alta-prod.php">Alta</a></li>
-                                <li role="presentation"><a href="../admin-baja-prod.php">Baja</a></li>
-                                <li role="presentation" class="active"><a href="../admin-modif-prod.php">Modificacion</a></li>
-                            </ul>
-                        </li>
-
-                        <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a href="../admin-cp-user.php">Listado</a></li>
-                                <li role="presentation"><a href="../admin-alta-user.php">Alta</a></li>
-                                <li role="presentation"><a href="../admin-baja-user.php">Baja</a></li>
-                                <li role="presentation"><a href="../admin-modif-user.php">Modificacion</a></li>
-                            </ul>
-                        </li>
+                        <li role="presentation"><a href="../admin-cp.php">Listado de productos</a></li>
+                        <li role="presentation"><a href="../admin-alta-prod.php">Nuevo producto</a></li>
+                        <li role="presentation"><a href="../admin-cp-user.php">Listado de usuarios</a></li>
+                        <li role="presentation"><a href="../admin-alta-user.php">Nuevo usuario</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-md-7 col-md-offset-1">
-                    <h1>Modificar un producto</h1>
+                    <h1>Modificación de producto</h1>
                     <hr>
 
                     <?php
                         echo $success;
                     ?>
                     
-                    <a href="../admin-modif-prod.php"><button type="button" class="btn btn-primary">Volver al menu de modificacion</button></a>
+                    <a href="../admin-cp.php"><button type="button" class="btn btn-primary">Volver al listado</button></a>
                 </div>
             </div>
         </div>
