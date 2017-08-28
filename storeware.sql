@@ -57,7 +57,7 @@ CREATE TABLE `cliente` (
   `usuario` varchar(45) NOT NULL,
   `contrasenia` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'admin','admin','No tiene direccion','1414141414','admin@admin.com',1,'admin','admin'),(4,'cliente','cliente','No tiene direccion','3704801348','cliente@cliente.com',0,'cliente','cliente'),(7,'Mauricio','Minio','Laprida 597','4389548','mauricio@gmail.com',0,'mauri','mauri'),(10,'Julian','Poma','Sorrento 439','48562698','test@test.com',0,'neucoas','admin'),(11,'Tomas','Fiorenza','Av Sabin 487','28458745','tomas@hotmail.com',0,'tomas','tomas'),(12,'Ana','Valdes','Dorrego','28787484','valdes@gmail.com',0,'anita','anita'),(13,'Andres','Malvestic','Asd','59898','usuarioasds@gmail.com',0,'andy','andy'),(14,'test','test','no tiene','8784188','test@test.com',1,'test','test');
+INSERT INTO `cliente` VALUES (1,'Admin','Admin','Cordoba 989','3412569878','admin@admin.comq',1,'admin','admin'),(10,'Julian','Poma','Sorrento 439','4865982','admin@admin.com',0,'neucoas','neucoas'),(11,'Tomas','Fiorenza','Av Sabin 487','4369563','tomas@hotmail.com',0,'tomas','tomas'),(12,'Ana','Valdes','Dorrego 878','4369587','valdes@gmail.com',0,'anita','anita'),(13,'Andres','Malvestic','Laprida 2895','3416231469','usuarioasds@gmail.com',0,'andy','andy'),(14,'Test','Test','Pellegrinni 898','3416989875','test@test.com',1,'test','test'),(15,'Gabe','Newell','Turlock 598','01156987289','gabe@newell.com',1,'gabe','newell');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`id_producto`),
   KEY `fk_idsubcat_idx` (`id_subcategoria`),
   CONSTRAINT `fk_idsubcat` FOREIGN KEY (`id_subcategoria`) REFERENCES `subcategoria` (`id_subCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5205 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5246 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1101,'Toshiba 1 tb - 5200 rpm',1200,16,101,'0'),(1201,'Samsung Evo SSD 250gb',2600,24,102,'0'),(2101,'Generica ATX 500 Wats',240,56,201,'0'),(2201,'EVGA 500w 80 Plus Sata 6 Pci-e 2',1500,13,202,'0'),(3101,'Kingston Hyperx Fury 8gb Ddr3 1866 Mhz',1500,32,301,'0'),(3201,'Kingston Hyperx Fury 8gb Ddr4 2400 Mhz',1700,24,302,'0'),(4101,'Asus Prime B350m-a Ryzen Am4 / Ddr4 / M.2 Usb 3.1 Box',2000,7,401,'0'),(4201,'Gigabyte Ga-h81m-h Ddr3 1150 Usb 3.0',1200,19,402,'0'),(5101,'Amd Ryzen 7 1700 8 Cores 3.0/3.7 Am4',6600,6,501,'0'),(5201,'Intel Core I7 7700k 4.5ghz Kaby Lake',7600,8,502,'0'),(5202,'Intel Core I5 6600HQ 2.6ghz ',3462,21,502,'0'),(5204,'Western Digital 320Gb',1500,25,101,'0');
+INSERT INTO `producto` VALUES (2101,'Fuente Generica 450W',450,56,201,'0'),(2201,'EVGA 500W 80 Plus Sata 6 Pci-e 2',1500,13,202,'0'),(3201,'Kingston Hyperx Fury 8gb Ddr4 2400 Mhz',1700,24,302,'0'),(4201,'Gigabyte Ga-h81m-h Ddr3 1150 Usb 3.0',1200,19,402,'0'),(5101,'Amd Ryzen 7 1700 8 Cores 3.0/3.7 Am4',6600,6,501,'0'),(5201,'Intel Core I7 7700k 4.5ghz Kaby Lake',7600,8,502,'0'),(5202,'Intel Core I5 6600HQ 2.6ghz ',3462,21,502,'0'),(5204,'Disco Rigido W.D. 500GB Blue 2.5 7mm',1139,25,101,'0'),(5205,'Disco Rigido W.D. 1TB Blue Sata',1174,2,101,'0'),(5206,'Disco Rigido W.D. 1TB Blue 2.5 9mm',1300,25,101,'0'),(5207,'Disco Rigido W.D. 2TB Blue Sata',1815,5,101,'0'),(5208,'Disco Rigido W.D. 4TB Purple WD40PURX',3506,2,101,'0'),(5209,'Fuente Generica 500W',550,50,201,'0'),(5210,'Fuente Generica 600W',980,100,201,'0'),(5211,'Disco SSD Kingston UV400 120GB',1762,23,102,'0'),(5212,'SSD Western Digital Green 120GB',1780,25,102,'0'),(5213,'Disco SSD Adata U800 3D Nand 128GB',1900,25,102,'0'),(5214,'SSD Corsair Force LE 200 120GB',1922,15,102,'0'),(5215,'Disco SSD Adata U800 3D Nand 512GB',4985,2,102,'0'),(5216,'SSD Corsair M.2 MP500 Force 240GB',4900,2,102,'0'),(5217,'Disco SSD Crucial MX300 525GB',5430,1,102,'0'),(5218,'Memoria Crucial DDR3 4GB 1600Mhz',925,25,301,'0'),(5219,'Hyper X Fury DDR3 4GB 1866mhz',979,30,301,'0'),(5220,'Hyper X Fury DDR3 8GB 1866mhz',1780,10,301,'0'),(5221,'Memoria Crucial 4GB DDR4 2400mhz',925,25,302,'0'),(5222,'Memoria Adata 8GB DDR4 2133mhz',1762,23,302,'0'),(5223,'Crucial Elite DDR4 2x4GB 2666mhz',1922,20,302,'0'),(5224,'Memoria G.Skill RGB 2x8GB 3200Mhz DDR4',4628,9,302,'0'),(5225,'Memoria Corsair LPX 2x8GB 2666mhz DDR4',3808,5,302,'0'),(5226,'  Fuente XFX 400W XT 80+ Bronce',1263,56,202,'0'),(5227,'Fuente Corsair VS-550W 80Plus White',1664,35,202,'0'),(5228,'Fuente NZXT Hale82 v2 550W 80+Bronce',1635,10,202,'0'),(5229,'Fuente Evga Supernova 1000W 80+Gold',5340,4,202,'0'),(5230,'Mother Gigabyte AB350-Gaming 3 AM4',2830,10,401,'0'),(5231,'Mother Gigabyte AX370-Gaming AM4',3293,2,401,'0'),(5232,'Mother Asrock H110M-HDV R3.0 1151',1110,25,402,'0'),(5233,'Mother Gigabyte B250M-DS3H 1151',1851,25,402,'0'),(5234,'Mother Gigabyte B250M-D3H 1151',2171,59,402,'0'),(5235,'Mother Gigabyte Z270-Gaming 3 1151',3755,54,402,'0'),(5236,'Mother Asus Maximus IX Code 1151',7120,1,402,'0'),(5237,'Mother Gigabyte Z270X-Gaming K5 1151',1681,13,402,'0'),(5238,'Mother ASUS AX370 Extreme AM4 ',3599,7,401,'0'),(5239,'Micro Amd Ryzen 5 1400 Am4',3987,23,501,'0'),(5240,'Micro AMD Ryzen 5 1600 AM4',5055,23,501,'0'),(5241,'Micro Intel Celeron G3930 1151',943,42,502,'0'),(5242,'Micro Intel Pentium G4560 1151',1492,21,502,'0'),(5243,'Microprocesador Intel Core i5 7400 1151',4396,12,502,'0'),(5244,'Microprocesador Intel Core i7 7700 1151',7671,11,502,'0'),(5245,'Microprocesador Intel Core i5 7500 1151',4984,18,502,'0');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-17 19:56:55
+-- Dump completed on 2017-08-28 18:08:16

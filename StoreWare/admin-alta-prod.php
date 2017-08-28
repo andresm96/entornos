@@ -101,7 +101,7 @@
                         <div class="form-group">
                             <select name="subcategoria" class="form-control">
                                 <option>HDD</option>
-                                <option>SDD</option>
+                                <option>SSD</option>
                                 <option>Genericas</option>
                                 <option>80+</option>
                                 <option>DDR3</option>

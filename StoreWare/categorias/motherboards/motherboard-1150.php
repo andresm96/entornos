@@ -164,7 +164,7 @@
         <div class="col-md-7 col-md-offset-1">
             <?php
                 include("../../php/conexion.inc");
-                $sql = "SELECT * FROM producto WHERE id_subcategoria = 401; ";
+                $sql = "SELECT * FROM producto WHERE id_subcategoria = 402; ";
                 $resultado = mysqli_query($con, $sql);
                 $total_registros=mysqli_num_rows($resultado);
             ?>
