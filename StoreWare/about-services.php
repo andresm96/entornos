@@ -39,7 +39,7 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  <li><a href="carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span> Ir al carro</a></li>
                   <?php
                       if ($visible) {
                           echo ("<li><a>Bienvenido <b>" . $_SESSION["usuario"] .
@@ -55,7 +55,8 @@
                       }
                       else {
                         ?>
-                          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+                            <li><a href="registro-login.html">Registrarse</a></li>
+                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                       <?php }  ?>
               </ul>
           </div>
