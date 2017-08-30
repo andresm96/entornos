@@ -209,7 +209,7 @@
                  if (isset ($_SESSION['usuario'])) {
                     }
                     else {
-                      echo ('<p style='.'color:red;'.'>¡ Recuerde que debe loguearse para comprar ! </p>');
+                      echo ('<div class="alert alert-danger">¡ Recuerde que debe loguearse para comprar !  </div>');
                     }
 
                   ?>
