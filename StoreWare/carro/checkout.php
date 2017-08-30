@@ -62,7 +62,7 @@
                             "</b></a></li>");
                             if ($admin) {
                                 echo ("<li>
-                                <a href="."../admin-cp.php".">Panel de Control</a>
+                                <a href="."../index-cp.php".">Panel de Control</a>
                                 </li>");
                             }
                             ?>

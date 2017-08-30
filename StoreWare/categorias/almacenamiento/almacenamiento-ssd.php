@@ -51,7 +51,7 @@
                             "</b></a></li>");
                             if ($admin) {
                                 echo ("<li>
-                                <a href="."../../admin-cp.php".">Panel de Control</a>
+                                <a href="."../../index-cp.php".">Panel de Control</a>
                                 </li>");
                             }
                             ?>
@@ -206,6 +206,14 @@
                         ?>
                       </tbody>
                  </table>
+                 <?php
+                 if (isset ($_SESSION['usuario'])) {
+                    }
+                    else {
+                      echo ('<p style='.'color:red;'.'>¡ Recuerde que debe loguearse para comprar ! </p>');
+                    }
+
+                  ?>
         </div>
     </div>
 </div>

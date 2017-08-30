@@ -51,7 +51,7 @@
                             "</b></a></li>");
                             if ($admin) {
                                 echo ("<li>
-                                <a href="."../../admin-cp.php".">Panel de Control</a>
+                                <a href="."../../index-cp.php".">Panel de Control</a>
                                 </li>");
                             }
                             ?>
@@ -59,7 +59,7 @@
                             <?php
                         }
                         else {
-                          ?> 
+                          ?>
                             <li><a href="../../registro-login.html">Registrarse</a></li>
                             <li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                         <?php }  ?>
@@ -205,6 +205,14 @@
                         ?>
                       </tbody>
                  </table>
+                 <?php
+                 if (isset ($_SESSION['usuario'])) {
+                    }
+                    else {
+                      echo ('<p style='.'color:red;'.'>¡ Recuerde que debe loguearse para comprar ! </p>');
+                    }
+
+                  ?>
         </div>
     </div>
 </div>

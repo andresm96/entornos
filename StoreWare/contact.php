@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
     include("validate.php");
 
     if (isset($_POST['submit'])) {
@@ -15,7 +15,7 @@
         mail($sendto, $subject, $formcontent, $mailheader);
         $result = '<div class="alert alert-sucess">Gracias! Tome un cafe, lo contactaremos a la brevedad.</div>';
     }
-    
+
 ?>
 <html>
     <head>
@@ -70,7 +70,7 @@
                                 "</b></a></li>");
                                 if ($admin) {
                                     echo ("<li>
-                                    <a href="."admin-cp.php".">Panel de Control</a>
+                                    <a href="."index-cp.php".">Panel de Control</a>
                                     </li>");
                                 }
                                 ?>
@@ -137,7 +137,7 @@
                         }
                         ?>
 
-                     </form>         
+                     </form>
                 </div>
                 <div class="col-md-3">
                     <ul>

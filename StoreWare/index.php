@@ -11,6 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
     <link href="css/styles-css/custom-index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/edit-style.css">
 </head>
 
 <body>
@@ -48,7 +49,7 @@
                             "</b></a></li>");
                             if ($admin) {
                                 echo ("<li>
-                                <a href="."admin-cp.php".">Panel de Control</a>
+                                <a href="."index-cp.php".">Panel de Control</a>
                                 </li>");
                             }
                             ?>
@@ -198,22 +199,35 @@
                     </div>
 
                 </div>
-                <hr>
-                <h2 class="title-sponsors">Powered By</h2>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <img src="src/img/intel.jpg" alt="intel" class="img-sponsor">
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <img src="src/img/msi.png" alt="msi" class="img-sponsor">
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <img src="src/img/nvidia.jpg" alt="nvidia" class="img-sponsor">
-                    </div>
 
+                <div class="row">
+                  <hr>
+                  <h1 class="title-sponsors">Bienvenido a StoreWare</h1>
+                  <hr>
+                  <p class="text-p alineado"> Le damos la bienvenida a nuestro sitio web de e-commerce "StoreWare". </p>
+                  <p class="text-p alineado">Dentro del mismo, podrá comprar cualquiera de los productos
+                  que ofrece la compañía, pero antes, es necesario que se loguee. Puede hacerlo dirigiendose a la pestaña "Iniciar Sesión" en la esquina superior
+                  derecha de la pantalla, y de no tener cuenta, puede registrarse en nuestro sitio en la pestaña "Registrarse", en la misma ubicación.</p>
+                  <p class="text-p alineado">¡ Esperamos que disfrute su visita !</p>
                 </div>
 
+                <div class="row">
+                  <hr>
+                  <h2 class="title-sponsors">Nuestros Sponsors</h2>
+                  <hr>
+                  <div class="row">
+                      <div class="col-sm-4 col-lg-4 col-md-4">
+                          <img src="src/img/intel.jpg" alt="intel" class="img-sponsor">
+                      </div>
+                      <div class="col-sm-4 col-lg-4 col-md-4">
+                          <img src="src/img/msi.png" alt="msi" class="img-sponsor">
+                      </div>
+                      <div class="col-sm-4 col-lg-4 col-md-4">
+                          <img src="src/img/nvidia.jpg" alt="nvidia" class="img-sponsor">
+                      </div>
+
+                    </div>
+              </div>
             </div>
 
         </div>

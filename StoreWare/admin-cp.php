@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">StoreWare • Control Panel</a>
+                    <a class="navbar-brand" href="index.php">StoreWare</a><a href="#" class="navbar-brand">•</a><a class="navbar-brand" href="index-cp.php">Control Panel</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
