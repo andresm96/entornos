@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include("../../validate.php") ?>
+<?php
+  include("../../validate.php");
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +14,7 @@
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../css/shop-homepage.css" rel="stylesheet">
+    <link href="../../css/pagination.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -159,14 +162,42 @@
                 </div>
           </div>
 <!-- // CUERPO DE LA PAGINA // -->
-<div class="container">
+<div class="container ">
     <div class="row">
         <div class="col-md-7 col-md-offset-1">
+
             <?php
                 include("../../php/conexion.inc");
+                $TAMANO_PAGINA = 3;
+                if (isset($_GET["pagina"])) {
+                  $pagina = $_GET["pagina"];
+                }
+                else {
+                  $pagina = 1;
+                }
+                //Comprueba si está seteado el GET de HTTP
+                if (!$pagina) {
+                  $inicio = 0;
+                  $pagina=1;
+                }
+                else {
+                    $inicio = ($pagina - 1) * $TAMANO_PAGINA;
+                }
+                //miro a ver el número total de campos que hay en la tabla con esa búsqueda
                 $sql = "SELECT * FROM producto WHERE id_subcategoria = 101; ";
                 $resultado = mysqli_query($con, $sql);
-                $total_registros=mysqli_num_rows($resultado);
+                $total_registros = mysqli_num_rows($resultado);
+                //calculo el total de páginas
+                $total_paginas = ceil($total_registros / $TAMANO_PAGINA);
+
+                //pongo el número de registros total, el tamaño de página y la página que se muestra
+                /*echo "Número de registros encontrados: " . $total_registros . "<br>";
+                echo "Se muestran páginas de " . $TAMANO_PAGINA . " registros cada una<br>";
+                echo "Mostrando la página " . $pagina . " de " . $total_paginas . "<p>";*/
+
+                //construyo la sentencia SQL
+                $sql = "SELECT * FROM producto WHERE id_subcategoria = 101 LIMIT " . $inicio . "," . $TAMANO_PAGINA;
+                $resultado = mysqli_query($con, $sql);
             ?>
                   <table class="table table-striped">
                       <thead>
@@ -180,31 +211,44 @@
 
                       <tbody>
                       <?php
-                      while ($fila = mysqli_fetch_array($resultado))
-                      {
+                      while ($fila = mysqli_fetch_array($resultado)){ ?>
+
+                        <form method="POST" action="../../carro/agregacar.php">
+                            <tr>
+                                <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
+                                <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
+                                <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
+                                <?php
+                                 if (isset ($_SESSION['usuario'])) {
+                                   echo('<td><button type="submit" class="btn btn-default btn-sm">Agregar</button></td>'); }
+                                ?>
+                                   </tr>
+                               </form>
+                      <?php
+                      }
+                      // Liberar conjunto de resultados
+                      mysqli_free_result($resultado);
+                      // Cerrar la conexion
+                      mysqli_close($con);
+                      //Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
+                      //Nota: X = $total_paginas
                       ?>
-
-                      <form method="POST" action="../../carro/agregacar.php">
-                          <tr>
-                              <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
-                              <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
-                              <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
-                              <?php
-                               if (isset ($_SESSION['usuario'])) {
-                                 echo('<td><button type="submit" class="btn btn-default btn-sm">Agregar</button></td>'); }
-                              ?>
-                          </tr>
-                      </form>
-
-                        <?php
-                            }
-                            // Liberar conjunto de resultados
-                            mysqli_free_result($resultado);
-                            // Cerrar la conexion
-                            mysqli_close($con);
-                        ?>
-                      </tbody>
-                 </table>
+                    </tbody>
+                  </table>
+                      <div class="center">
+                        <ul class="pagination">
+                      <?php
+                      for ($i=1; $i<=$total_paginas; $i++) {
+                        //En el bucle, muestra la paginación
+                        if ($i == $pagina) {
+                          echo "<li class="."active"."><a href='almacenamiento-hdd.php?pagina=".$i."'>".$i."</a></li> ";
+                        }
+                        else {
+                          echo "<li><a href='almacenamiento-hdd.php?pagina=".$i."'>".$i."</a></li> ";
+                        }
+                      } ?>
+                        </ul>
+                      </div>
                  <?php
                  if (isset ($_SESSION['usuario'])) {
                     }
