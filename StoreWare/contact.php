@@ -8,11 +8,12 @@
         $subject = $_POST['subject'];
         $message = $_POST['message'];
 
-        $sendto = "admin@storeware.com";
+        $sendto = "mauriminio96@gmail.com";
         $formcontent="De: $name \n Mensaje: $message";
         $mailheader = "De: $email \r\n";
 
         mail($sendto, $subject, $formcontent, $mailheader);
+        mail($email, 'Consulta enviada correctamente', 'Su consulta fue enviada con satisfacción, aguarde la respuesta.', 'staff@storeware.com');
         $result = '<div class="alert alert-sucess">Gracias! Tome un cafe, lo contactaremos a la brevedad.</div>';
     }
 
