@@ -12,6 +12,7 @@
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../css/shop-homepage.css" rel="stylesheet">
+    <link href="../../css/pagination.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -162,28 +163,52 @@
 <div class="container">
     <div class="row">
         <div class="col-md-7 col-md-offset-1">
-            <?php
-                include("../../php/conexion.inc");
+          <?php
+              include("../../php/conexion.inc");
+              $TAMANO_PAGINA = 3;
+              if (isset($_GET["pagina"])) {
+                $pagina = $_GET["pagina"];
+              }
+              else {
+                $pagina = 1;
+              }
+              //Comprueba si está seteado el GET de HTTP
+              if (!$pagina) {
+                $inicio = 0;
+                $pagina=1;
+              }
+              else {
+                  $inicio = ($pagina - 1) * $TAMANO_PAGINA;
+              }
+              //miro a ver el número total de campos que hay en la tabla con esa búsqueda
+              $sql = "SELECT * FROM producto WHERE id_subcategoria = 201; ";
+              $resultado = mysqli_query($con, $sql);
+              $total_registros = mysqli_num_rows($resultado);
+              //calculo el total de páginas
+              $total_paginas = ceil($total_registros / $TAMANO_PAGINA);
 
-                $sql = "SELECT * FROM producto WHERE id_subcategoria = 201; ";
-                $resultado = mysqli_query($con, $sql);
-                $total_registros=mysqli_num_rows($resultado);
-            ?>
-                  <table class="table table-striped">
-                      <thead>
-                          <tr>
-                              <td><b>ID</b></td>
-                              <td><b>Nombre del producto</b></td>
-                              <td><b>Precio</b></td>
-                              <td></td>
-                          </tr>
-                    </thead>
+              //pongo el número de registros total, el tamaño de página y la página que se muestra
+              /*echo "Número de registros encontrados: " . $total_registros . "<br>";
+              echo "Se muestran páginas de " . $TAMANO_PAGINA . " registros cada una<br>";
+              echo "Mostrando la página " . $pagina . " de " . $total_paginas . "<p>";*/
 
-                      <tbody>
-                      <?php
-                      while ($fila = mysqli_fetch_array($resultado))
-                      {
-                      ?>
+              //construyo la sentencia SQL
+              $sql = "SELECT * FROM producto WHERE id_subcategoria = 201 LIMIT " . $inicio . "," . $TAMANO_PAGINA;
+              $resultado = mysqli_query($con, $sql);
+          ?>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td><b>ID</b></td>
+                            <td><b>Nombre del producto</b></td>
+                            <td><b>Precio</b></td>
+                            <td></td>
+                        </tr>
+                  </thead>
+
+                    <tbody>
+                    <?php
+                    while ($fila = mysqli_fetch_array($resultado)){ ?>
 
                       <form method="POST" action="../../carro/agregacar.php">
                           <tr>
@@ -194,18 +219,33 @@
                                if (isset ($_SESSION['usuario'])) {
                                  echo('<td><button type="submit" class="btn btn-default btn-sm">Agregar</button></td>'); }
                               ?>
-                          </tr>
-                      </form>
-
-                        <?php
-                            }
-                            // Liberar conjunto de resultados
-                            mysqli_free_result($resultado);
-                            // Cerrar la conexion
-                            mysqli_close($con);
-                        ?>
-                      </tbody>
-                 </table>
+                                 </tr>
+                             </form>
+                    <?php
+                    }
+                    // Liberar conjunto de resultados
+                    mysqli_free_result($resultado);
+                    // Cerrar la conexion
+                    mysqli_close($con);
+                    //Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
+                    //Nota: X = $total_paginas
+                    ?>
+                  </tbody>
+                </table>
+                    <div class="center">
+                      <ul class="pagination">
+                    <?php
+                    for ($i=1; $i<=$total_paginas; $i++) {
+                      //En el bucle, muestra la paginación
+                      if ($i == $pagina) {
+                        echo "<li class="."active"."><a href='fuentes-genericas.php?pagina=".$i."'>".$i."</a></li> ";
+                      }
+                      else {
+                        echo "<li><a href='fuentes-genericas.php?pagina=".$i."'>".$i."</a></li> ";
+                      }
+                    } ?>
+                      </ul>
+                    </div>
                  <?php
                  if (isset ($_SESSION['usuario'])) {
                     }

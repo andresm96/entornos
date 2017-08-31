@@ -13,6 +13,7 @@
         <link href="css/styles-css/cp-styles.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/shop-homepage.css" rel="stylesheet">
+        <link href="../../css/pagination.css" rel="stylesheet">
 
     </head>
 
@@ -57,7 +58,7 @@
                 <div class="col-md-7 col-md-offset-1">
                     <h1>Listado de usuarios</h1>
 
-                    <form class="form-group" action="admin-cp-user.php" method="post">
+                    <form class="form-group" action="admin-cp-user.php" method="GET">
                         <div class="input-group">
                             <select name="cliente" class="form-control">
                                 <option>Administradores</option>
@@ -72,9 +73,9 @@
                     <?php
                         include("./php/conexion.inc");
 
-                        if (isset($_POST['cliente'])) {
+                        if (isset($_GET['cliente'])) {
 
-                            $selectedcat = $_POST['cliente'];
+                            $selectedcat = $_GET['cliente'];
 
                             if ($selectedcat == "Administradores")
                             {
@@ -86,10 +87,37 @@
                                 $subcat=0;
                             }
 
-                            $sql = "SELECT * FROM cliente where tipo_usu like '$subcat%'";
+                            $TAMANO_PAGINA = 3;
+                            if (isset($_GET["pagina"])) {
+                              $pagina = $_GET["pagina"];
+                            }
+                            else {
+                              $pagina = 1;
+                            }
+                            //Comprueba si está seteado el GET de HTTP
+                            if (!$pagina) {
+                              $inicio = 0;
+                              $pagina=1;
+                            }
+                            else {
+                                $inicio = ($pagina - 1) * $TAMANO_PAGINA;
+                            }
+                            //miro a ver el número total de campos que hay en la tabla con esa búsqueda
+                            //miro a ver el número total de campos que hay en la tabla con esa búsqueda
+                            $sql = "SELECT * FROM cliente WHERE tipo_usu LIKE '$subcat%'";
                             $resultado = mysqli_query($con, $sql);
-                            $total_registros=mysqli_num_rows($resultado);
+                            $total_registros = mysqli_num_rows($resultado);
+                            //calculo el total de páginas
+                            $total_paginas = ceil($total_registros / $TAMANO_PAGINA);
 
+                            //pongo el número de registros total, el tamaño de página y la página que se muestra
+                            /*echo "Número de registros encontrados: " . $total_registros . "<br>";
+                            echo "Se muestran páginas de " . $TAMANO_PAGINA . " registros cada una<br>";
+                            echo "Mostrando la página " . $pagina . " de " . $total_paginas . "<p>";*/
+
+                            //construyo la sentencia SQL
+                            $sql = "SELECT * FROM cliente WHERE tipo_usu LIKE '$subcat%' LIMIT " . $inicio . "," . $TAMANO_PAGINA;
+                            $resultado = mysqli_query($con, $sql);
                             ?>
 
                             <form class="form-inline" action="admin-baja-modif-user.php" method="post">
@@ -140,10 +168,29 @@
                                         mysqli_free_result($resultado);
                                         // Cerrar la conexion
                                         mysqli_close($con);
+                                        //Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
+                                        //Nota: X = $total_paginas
                             }
                             ?>
                         </tbody>
                     </table>
+                    <div class="center">
+                      <ul class="pagination">
+                    <?php
+                    if (isset($total_paginas)) {
+                      for ($i=1; $i<=$total_paginas; $i++) {
+                        //En el bucle, muestra la paginación
+                        if ($i == $pagina) {
+                          echo "<li class="."active"."><a href='admin-cp-user.php?pagina=".$i."&cliente=".$selectedcat."'>".$i."</a></li> ";
+                        }
+                        else {
+                          echo "<li><a href='admin-cp-user.php?pagina=".$i."&cliente=".$selectedcat."'>".$i."</a></li> ";
+                        }
+                      }
+                    }
+                     ?>
+                      </ul>
+                    </div>
                 </div>
             </div>
         </div>
