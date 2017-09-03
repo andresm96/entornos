@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <?php
     include("validate.php");
-
-    if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
-
-        $sendto = "admin@storeware.com";
-        $formcontent="De: $name \n Mensaje: $message";
-        $mailheader = "De: $email \r\n";
-
-        mail($sendto, $subject, $formcontent, $mailheader);
-        $result = '<div class="alert alert-sucess">Gracias! Tome un cafe, lo contactaremos a la brevedad.</div>';
-    }
-
 ?>
 <html>
     <head>
@@ -103,11 +88,11 @@
             <div class="row">
                 <div class="col-md-5 col-md-offset-2">
 
-                    <form name="contactform" method="post" action="contact.php" role="form">
+                    <form name="contactform" method="post" action="enviar.php" role="form">
 
                         <div class="form-group">
                             <label for="user">Nombre completo</label>
-                            <input type="text" class="form-control" name="name" placeholder="Gabe Newell" required>
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" required>
                         </div>
 
                         <div class="form-group">
@@ -117,25 +102,19 @@
 
                         <div class="form-group">
                             <label for="user">Asunto</label>
-                            <select name="sports" class="form-control">
-                                <option value="consulta">Consulta general</option>
-                                <option value="pedido">Realizar un pedido</option>
-                                <option value="problem">Problema en la compra</option>
+                            <select name="asunto" class="form-control">
+                                <option value="consulta-general">Consulta general</option>
+                                <option value="realizar-pedido">Realizar un pedido</option>
+                                <option value="problema-compra">Problema en la compra</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="user">Su consulta, comentarios o sugerencias</label>
-                            <textarea id="message" name="message" placeholder="Amo StoreWare!" style="height:200px" required=""></textarea>
+                            <textarea id="message" name="texto" placeholder="Amo StoreWare!" style="height:200px" required=""></textarea>
                         </div>
 
                         <button type="reset" value="Reset" class="btn btn-default" >Limpiar</button>
                         <input type="submit" value="Enviar mensaje" class="btn btn-success pull-right"></input>
-
-                        <?php
-                        if (isset($_POST['submit'])) {
-                            echo $result;
-                        }
-                        ?>
 
                      </form>
                 </div>
