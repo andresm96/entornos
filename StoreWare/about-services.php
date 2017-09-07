@@ -15,10 +15,10 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
+            <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
@@ -26,19 +26,19 @@
                   <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="index.php">StoreWare</a>
-          </div>
+            </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
                   <li>
                       <a href="about-services.php">Servicios</a>
                   </li>
                   <li>
                       <a href="contact.php">Contacto</a>
                   </li>
-              </ul>
+                </ul>
 
-              <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                   <li><a href="carro/checkout.php"><span class="glyphicon glyphicon-shopping-cart"></span> Ir al carro</a></li>
                   <?php
                       if ($visible) {
@@ -58,10 +58,10 @@
                             <li><a href="registro-login.html">Registrarse</a></li>
                             <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                       <?php }  ?>
-              </ul>
-          </div>
+                </ul>
+            </div>
       </div>
-  </nav>
+    </nav>
     <section id="services">
         <div class="container">
             <div class="row">
@@ -99,8 +99,6 @@
         </div>
     </section>
 
-
-    </div>
     <div class="container">
         <!-- Footer -->
         <hr>
@@ -112,6 +110,6 @@
             </div>
         </footer>
         <!-- end footer -->
+    </div>
 </body>
-
 </html>

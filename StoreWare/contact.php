@@ -77,7 +77,7 @@
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.868446653849!2d-60.64585033878075!3d-32.954482486117264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUTN-FRRO%2C+Universidad+Tecnol%C3%B3gica+Nacional+-+Facultad+Regional+Rosario!5e0!3m2!1ses-419!2sar!4v1490369624629" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.868446653849!2d-60.64585033878075!3d-32.954482486117264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUTN-FRRO%2C+Universidad+Tecnol%C3%B3gica+Nacional+-+Facultad+Regional+Rosario!5e0!3m2!1ses-419!2sar!4v1490369624629" width="100%" height="350" style="border:0" allowfullscreen></iframe>
 
                 </div>
             </div>
@@ -88,28 +88,28 @@
             <div class="row">
                 <div class="col-md-5 col-md-offset-2">
 
-                    <form name="contactform" method="post" action="enviar.php" role="form">
+                    <form name="contactform" method="post" action="enviar.php">
 
                         <div class="form-group">
-                            <label for="user">Nombre completo</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" required>
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre Completo" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="user">E-mail</label>
-                            <input type="email" class="form-control" name="email" placeholder="mimail@midominio.com" required>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" class="form-control" name="email" placeholder="mimail@midominio.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="user">Asunto</label>
-                            <select name="asunto" class="form-control">
+                            <label for="asunto">Asunto</label>
+                            <select name="asunto" class="form-control" id="asunto">
                                 <option value="consulta-general">Consulta general</option>
                                 <option value="realizar-pedido">Realizar un pedido</option>
                                 <option value="problema-compra">Problema en la compra</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="user">Su consulta, comentarios o sugerencias</label>
+                            <label for="message">Su consulta, comentarios o sugerencias</label>
                             <textarea id="message" name="texto" placeholder="Amo StoreWare!" style="height:200px" required=""></textarea>
                         </div>
 
