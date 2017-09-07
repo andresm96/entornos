@@ -212,9 +212,9 @@
 
                       <form method="POST" action="../../carro/agregacar.php">
                           <tr>
-                              <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></input></td>
-                              <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></input></td>
-                              <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></input></td>
+                              <td><?php echo ($fila['id_producto']); ?> <input type="hidden" name="id_producto" value="<?php echo ($fila['id_producto']); ?>"></td>
+                              <td><?php echo ($fila['nombre']); ?> <input type="hidden" name="nombre" value="<?php echo ($fila['nombre']); ?> "></td>
+                              <td><?php echo ($fila['precio']); ?> <input type="hidden" name="precio" value="<?php echo ($fila['precio']); ?> "></td>
                               <?php
                                if (isset ($_SESSION['usuario'])) {
                                  echo('<td><button type="submit" class="btn btn-default btn-sm">Agregar</button></td>'); }
