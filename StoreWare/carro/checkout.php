@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php include("../validate.php");
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 
 <head>
@@ -80,7 +80,7 @@
     </nav>
 
     <!-- cart table -->
-    <h1 style="text-align:center;">Mi carrito</h1>
+    <h1 align="center">Mi carrito</h1>
     <hr>
     <?php
     if (isset($_SESSION['carro'])) {
@@ -106,7 +106,7 @@
                 $suma=0;
                 foreach($carro as $k => $v){
                 $subto=$v['precio'];
-                $suma=$suma+$subto;
+                $suma=$suma+intval($subto);
                 ?>
                 <form name="a<?php echo $v['identificador'] ?>" method="post" action="agregacar.php?<?php echo SID ?>" id="a<?php echo $v['identificador'] ?>">
                   <tbody>
@@ -138,16 +138,16 @@
                   </tr>
                 </tfoot>
                 <br><br><br>
-                <a href="../index.php" class="btn btn-primary">Continuar comprando</a>
+                <a href="../index.php"><button type="button" class="btn btn-primary">Continuar comprando</button></a>
                   <a href="limpiar.php"><button id="clean" type="button" name="button" class="btn btn-danger" >Limpiar Carro</button></a>
                 <a href="../payinfo.php"><button id="checkout" type="button" class="btn btn-success">Checkout</button></a>
                 </div>
                 <?php }
                 else{ ?>
                     <br>
-                    <p style="text-align:center;"><span class="prod alert alert-warning"><b>No hay productos seleccionados</b></span>
+                    <p align="center"><span class="prod alert alert-warning"><b>No hay productos seleccionados</b></span>
                     <br><br><br>
-                    <a href="../index.php" class="btn btn-primary">Ir al Store</a>
+                    <a href="../index.php"><button type="button" class="btn btn-primary">Ir al Store</button></a>
                 <?php }?>
             </div>
         </div>
