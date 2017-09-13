@@ -14,6 +14,6 @@ Enviado: $fecha a las $hora\n
 \n
 ";
 mail($destino,$asunto,$comentario,$desde);
-echo "Su consulta ha sido enviada, en breve recibir� nuestra
-respuesta.";
+mail($_POST['email'], "Consulta enviada correctamente", "Su consulta fue recibida, responderemos a la brevedad, gracias por contactarse con nosotros", "mauriminio96@gmail.com");
+header("Location: https://storeware.000webhostapp.com/index.php");
 ?>

@@ -70,8 +70,6 @@
     </nav>
     <div class="container">
         <div class="row">
-        <h1 class="center">Procesadores AMD</h1>
-      <hr>
             <div class="col-md-3">
                 <p class="lead">Categorías</p>
                 <div class="panel-group">
@@ -164,6 +162,8 @@
 <!-- // CUERPO DE LA PAGINA // -->
 <div class="container">
     <div class="row">
+    <h1 class="center">Almacenamiento DDR4</h1>
+         <hr
         <div class="col-md-7 col-md-offset-1">
           <?php
               include("../../php/conexion.inc");
