@@ -80,7 +80,7 @@
     </nav>
 
     <!-- cart table -->
-    <h1 align="center">Mi carrito</h1>
+    <h1 style="text-align:center;">Mi carrito</h1>
     <hr>
     <?php
     if (isset($_SESSION['carro'])) {
@@ -145,7 +145,7 @@
                 <?php }
                 else{ ?>
                     <br>
-                    <p align="center"><span class="prod alert alert-warning"><b>No hay productos seleccionados</b></span>
+                    <p style="text-align:center;"><span class="prod alert alert-warning"><b>No hay productos seleccionados</b></span>
                     <br><br><br>
                     <a href="../index.php"><button type="button" class="btn btn-primary">Ir al Store</button></a>
                 <?php }?>
