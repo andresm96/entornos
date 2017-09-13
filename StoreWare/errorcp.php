@@ -1,6 +1,6 @@
+<?php include("validate.php") ?>
 <!DOCTYPE html>
 <html lang="es">
-<?php include("validate.php") ?>
 <head>
 
     <meta charset="utf-8">
