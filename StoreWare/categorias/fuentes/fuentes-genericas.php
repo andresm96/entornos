@@ -162,6 +162,8 @@
 <!-- // CUERPO DE LA PAGINA // -->
 <div class="container">
     <div class="row">
+    <h1 class="center">Fuentes Genéricas</h1>
+      <hr>
         <div class="col-md-7 col-md-offset-1">
           <?php
               include("../../php/conexion.inc");
@@ -199,9 +201,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td><b>ID</b></td>
-                            <td><b>Nombre del producto</b></td>
-                            <td><b>Precio</b></td>
+                        <td>ID</td>
+                        <td>Nombre del producto</td>
+                        <td>Precio</td>
                             <td></td>
                         </tr>
                   </thead>

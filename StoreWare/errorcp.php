@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <?php include("validate.php") ?>
 <head>
 

@@ -2,8 +2,8 @@
     include("validate.php");
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="es">
+<head>
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,7 +77,7 @@
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.868446653849!2d-60.64585033878075!3d-32.954482486117264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUTN-FRRO%2C+Universidad+Tecnol%C3%B3gica+Nacional+-+Facultad+Regional+Rosario!5e0!3m2!1ses-419!2sar!4v1490369624629" width="100%" height="350" style="border:0" allowfullscreen></iframe>
+                    <iframe title="MapaGoogle" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.868446653849!2d-60.64585033878075!3d-32.954482486117264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab11d0eb49c3%3A0x11f1d3d54f950dd0!2sUTN-FRRO%2C+Universidad+Tecnol%C3%B3gica+Nacional+-+Facultad+Regional+Rosario!5e0!3m2!1ses-419!2sar!4v1490369624629" width="100%" height="350" style="border:0" allowfullscreen></iframe>
 
                 </div>
             </div>
