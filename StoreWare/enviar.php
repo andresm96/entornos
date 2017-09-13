@@ -15,5 +15,8 @@ Enviado: $fecha a las $hora\n
 ";
 mail($destino,$asunto,$comentario,$desde);
 mail($_POST['email'], "Consulta enviada correctamente", "Su consulta fue recibida, responderemos a la brevedad, gracias por contactarse con nosotros", "mauriminio96@gmail.com");
-header("Location: https://storeware.000webhostapp.com/index.php");
+echo "<script>
+alert('Connsulta enviada correctamente !');
+window.location.href='https://storeware.000webhostapp.com/index.php';
+</script>";
 ?>

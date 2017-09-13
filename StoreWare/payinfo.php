@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <!-- Autor: Andres
          Ultima modificacion: 24/03/2017 -->
